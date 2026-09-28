@@ -4,12 +4,12 @@ This repository contains the submission for **Problem Statement 9: N-gram Langua
 
 ## Team members
 
-| Member | Name |
-|---|---|
-| Member 1 |  |
-| Member 2 |  |
-| Member 3 |  |
-| Member 4 |  |
+| Member | Name | Student ID |
+|---|---|---|
+| Member 1 | HARI KRISHNA MOORTHY T | 2025ag05393 |
+| Member 2 | SHREEJA MAHAPATRA | 2025ag05424 |
+| Member 3 | NAVEEN RANJOLKAR | 2025ag0539 |
+| Member 4 | SOMVANSHI PRASAD DIGAMBAR | 2025ag05285 |
 
 ## Assignment details
 
@@ -18,7 +18,7 @@ This repository contains the submission for **Problem Statement 9: N-gram Langua
 | Group number | 90 |
 | Problem statement | 9 - N-gram Language Modeling with Unknown Words |
 | Dataset | NLTK Gutenberg Corpus |
-| Selected book | `austen-emma.txt` (*Emma* by Jane Austen) |
+| Corpus scope | All 18 books available in NLTK Gutenberg |
 | Language model | Trigram model |
 | Rare-word threshold | Training frequency `< 3` |
 | Unknown-word token | `<UNK>` |
@@ -29,7 +29,7 @@ This repository contains the submission for **Problem Statement 9: N-gram Langua
 The project investigates how a trigram language model behaves when it encounters rare or previously unseen words. It covers the following objectives:
 
 - inspect the books available in the NLTK Gutenberg Corpus;
-- preprocess one sufficiently large Gutenberg book;
+- load and preprocess all available Gutenberg books;
 - analyze token and vocabulary frequencies;
 - build a trigram language model;
 - replace training words occurring fewer than three times with `<UNK>`;
@@ -40,15 +40,15 @@ The project investigates how a trigram language model behaves when it encounters
 
 ## Dataset
 
-The notebook uses `austen-emma.txt` from `nltk.corpus.gutenberg`. The book is large enough to train a trigram model, create a meaningful vocabulary, identify many rare words, and construct multiple test cases.
+The notebook uses all 18 books returned by `nltk.corpus.gutenberg.fileids()`. Their sentences and tokens are combined into one corpus while sentence boundaries are preserved.
 
-No external dataset or manually downloaded Project Gutenberg text is included. The notebook checks for the required NLTK resources and downloads them through NLTK when necessary:
+No external dataset or manually downloaded Project Gutenberg text is used. The official NLTK packages are included locally under `data/nltk_data/`:
 
 - `gutenberg`
 - `punkt`
 - `punkt_tab`
 
-NLTK stores these resources in a local ignored cache, so corpus files are not committed or included in the submission ZIP.
+The notebook adds this folder to `nltk.data.path` before loading the corpus. If any package is missing, the setup cell downloads it into the same local folder.
 
 ## Text preprocessing
 
@@ -144,10 +144,16 @@ Group90_GutenbergDataset/
 ├── requirements.txt
 ├── .gitignore
 └── data/
-    └── README.md
+    ├── README.md
+    └── nltk_data/
+        ├── corpora/
+        │   └── gutenberg.zip
+        └── tokenizers/
+            ├── punkt.zip
+            └── punkt_tab.zip
 ```
 
-The `data/README.md` file explains why no dataset file is stored in the project.
+The `data/README.md` file documents the origin and purpose of the local NLTK resources.
 
 ## Requirements
 
@@ -179,7 +185,44 @@ python -m pip install -r requirements.txt
 jupyter notebook Group90_GutenbergDataset.ipynb
 ```
 
-After opening the notebook, select **Kernel → Restart & Run All**. On the first run, internet access is required for NLTK to download missing corpus resources. Later runs can use the local NLTK cache.
+After opening the notebook, select **Kernel → Restart & Run All**. The included local NLTK resources allow the corpus to load without downloading it again. Internet access is needed only if one of those local package files is removed.
+
+## Makefile commands
+
+The included `Makefile` provides an end-to-end workflow. Run these commands from the `Group90_GutenbergDataset` directory:
+
+```bash
+make help          # List all available commands
+make setup         # Create .env and install requirements
+make data          # Download/verify local NLTK resources
+make run           # Execute the notebook and save its outputs
+make validate      # Check for unexecuted or failed code cells
+make export        # Create .py, .html, and .pdf exports
+make all           # Run the complete workflow from setup through export
+```
+
+Individual export commands are also available:
+
+```bash
+make export-py
+make export-html
+make export-pdf
+```
+
+Exports are written to:
+
+```text
+exports/
+├── Group90_GutenbergDataset.py
+├── Group90_GutenbergDataset.html
+└── Group90_GutenbergDataset.pdf
+```
+
+The PDF command uses Google Chrome in headless mode to print the self-contained HTML export, including notebook tables and plots. If Chrome is installed elsewhere, provide its path:
+
+```bash
+make export-pdf CHROME=/path/to/google-chrome
+```
 
 ## Reproducibility and correctness
 
@@ -209,7 +252,7 @@ The expected submission archive is:
 Group90_GutenbergDataset.zip
 ```
 
-It contains the project directory and the five required submission files. Temporary environments, NLTK cache files, notebook checkpoints, and other generated files are excluded.
+It contains the project files and the local official NLTK resource packages. Temporary environments, notebook checkpoints, and unrelated generated files are excluded.
 
 ## References
 

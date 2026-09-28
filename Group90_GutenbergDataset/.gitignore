@@ -1,8 +1,35 @@
+# Python bytecode and tool caches
 __pycache__/
-.ipynb_checkpoints/
-*.pyc
-.env
-.DS_Store
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local Python environments
+.env/
 .venv/
+venv/
+env/
+
+# Jupyter temporary files
+.ipynb_checkpoints/
+
+# Local scratch files and logs
+tmp/
+*.log
+
+# Optional user-level NLTK download directory
 .nltk_data/
 
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# Keep data/nltk_data/ and exports/ versioned because they are part of the
+# self-contained assignment package.
