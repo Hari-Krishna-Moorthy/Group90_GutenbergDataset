@@ -7956,15 +7956,6 @@ a.anchor-link {
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">"display.max_colwidth"</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
 
-<span class="c1"># Store NLTK resources inside the project so the corpus is available locally.</span>
-<span class="c1"># The folder already contains the official NLTK packages, but the download loop</span>
-<span class="c1"># also makes the notebook work if a package is accidentally removed.</span>
-<span class="n">NLTK_DATA_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="s2">"data"</span> <span class="o">/</span> <span class="s2">"nltk_data"</span>
-<span class="n">NLTK_DATA_DIR</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="c1"># Search the project-local folder before checking NLTK's other data locations.</span>
-<span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">NLTK_DATA_DIR</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
-    <span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">NLTK_DATA_DIR</span><span class="p">))</span>
 
 <span class="c1"># Map each package name to the path that NLTK expects after installation.</span>
 <span class="n">required_resources</span> <span class="o">=</span> <span class="p">{</span>
@@ -7975,22 +7966,13 @@ a.anchor-link {
 
 <span class="c1"># Download only resources that are missing; existing local files are reused.</span>
 <span class="k">for</span> <span class="n">package</span><span class="p">,</span> <span class="n">resource_path</span> <span class="ow">in</span> <span class="n">required_resources</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">resource_path</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">LookupError</span><span class="p">:</span>
-        <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span>
-            <span class="n">package</span><span class="p">,</span>
-            <span class="n">download_dir</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">NLTK_DATA_DIR</span><span class="p">),</span>
-            <span class="n">quiet</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-            <span class="n">raise_on_error</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="p">)</span>
+    <span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">resource_path</span><span class="p">)</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">nltk.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">gutenberg</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Python: </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"NLTK: </span><span class="si">{</span><span class="n">nltk</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Random seed: </span><span class="si">{</span><span class="n">SEED</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Local NLTK data folder: </span><span class="si">{</span><span class="n">NLTK_DATA_DIR</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8006,7 +7988,6 @@ a.anchor-link {
 <pre>Python: 3.14.6
 NLTK: 3.10.3
 Random seed: 42
-Local NLTK data folder: /Users/harikrishnamoorthyt/github/ml/bits-assignment/gutenberg_nlp/Group90_GutenbergDataset/data/nltk_data
 </pre>
 </div>
 </div>
@@ -8589,33 +8570,33 @@ Selection: all available Gutenberg books
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_67623">
+<table id="T_4b01d">
 <thead>
 <tr>
 <th class="blank level0"> </th>
-<th class="col_heading level0 col0" id="T_67623_level0_col0">Split</th>
-<th class="col_heading level0 col1" id="T_67623_level0_col1">Sentences</th>
-<th class="col_heading level0 col2" id="T_67623_level0_col2">Percentage</th>
+<th class="col_heading level0 col0" id="T_4b01d_level0_col0">Split</th>
+<th class="col_heading level0 col1" id="T_4b01d_level0_col1">Sentences</th>
+<th class="col_heading level0 col2" id="T_4b01d_level0_col2">Percentage</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_67623_level0_row0">0</th>
-<td class="data row0 col0" id="T_67623_row0_col0">Training</td>
-<td class="data row0 col1" id="T_67623_row0_col1">78656</td>
-<td class="data row0 col2" id="T_67623_row0_col2">80.0%</td>
+<th class="row_heading level0 row0" id="T_4b01d_level0_row0">0</th>
+<td class="data row0 col0" id="T_4b01d_row0_col0">Training</td>
+<td class="data row0 col1" id="T_4b01d_row0_col1">78656</td>
+<td class="data row0 col2" id="T_4b01d_row0_col2">80.0%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_67623_level0_row1">1</th>
-<td class="data row1 col0" id="T_67623_row1_col0">Testing</td>
-<td class="data row1 col1" id="T_67623_row1_col1">19665</td>
-<td class="data row1 col2" id="T_67623_row1_col2">20.0%</td>
+<th class="row_heading level0 row1" id="T_4b01d_level0_row1">1</th>
+<td class="data row1 col0" id="T_4b01d_row1_col0">Testing</td>
+<td class="data row1 col1" id="T_4b01d_row1_col1">19665</td>
+<td class="data row1 col2" id="T_4b01d_row1_col2">20.0%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row2" id="T_67623_level0_row2">2</th>
-<td class="data row2 col0" id="T_67623_row2_col0">Total</td>
-<td class="data row2 col1" id="T_67623_row2_col1">98321</td>
-<td class="data row2 col2" id="T_67623_row2_col2">100.0%</td>
+<th class="row_heading level0 row2" id="T_4b01d_level0_row2">2</th>
+<td class="data row2 col0" id="T_4b01d_row2_col0">Total</td>
+<td class="data row2 col1" id="T_4b01d_row2_col1">98321</td>
+<td class="data row2 col2" id="T_4b01d_row2_col2">100.0%</td>
 </tr>
 </tbody>
 </table>
@@ -8676,49 +8657,49 @@ Selection: all available Gutenberg books
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_488fe">
+<table id="T_0ff58">
 <thead>
 <tr>
 <th class="blank level0"> </th>
-<th class="col_heading level0 col0" id="T_488fe_level0_col0">Statistic</th>
-<th class="col_heading level0 col1" id="T_488fe_level0_col1">Value</th>
+<th class="col_heading level0 col0" id="T_0ff58_level0_col0">Statistic</th>
+<th class="col_heading level0 col1" id="T_0ff58_level0_col1">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_488fe_level0_row0">0</th>
-<td class="data row0 col0" id="T_488fe_row0_col0">Total training tokens</td>
-<td class="data row0 col1" id="T_488fe_row0_col1">1,708,115.00</td>
+<th class="row_heading level0 row0" id="T_0ff58_level0_row0">0</th>
+<td class="data row0 col0" id="T_0ff58_row0_col0">Total training tokens</td>
+<td class="data row0 col1" id="T_0ff58_row0_col1">1,708,115.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_488fe_level0_row1">1</th>
-<td class="data row1 col0" id="T_488fe_row1_col0">Unique training words</td>
-<td class="data row1 col1" id="T_488fe_row1_col1">37,932.00</td>
+<th class="row_heading level0 row1" id="T_0ff58_level0_row1">1</th>
+<td class="data row1 col0" id="T_0ff58_row1_col0">Unique training words</td>
+<td class="data row1 col1" id="T_0ff58_row1_col1">37,932.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row2" id="T_488fe_level0_row2">2</th>
-<td class="data row2 col0" id="T_488fe_row2_col0">Words occurring once</td>
-<td class="data row2 col1" id="T_488fe_row2_col1">13,943.00</td>
+<th class="row_heading level0 row2" id="T_0ff58_level0_row2">2</th>
+<td class="data row2 col0" id="T_0ff58_row2_col0">Words occurring once</td>
+<td class="data row2 col1" id="T_0ff58_row2_col1">13,943.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row3" id="T_488fe_level0_row3">3</th>
-<td class="data row3 col0" id="T_488fe_row3_col0">Words occurring twice</td>
-<td class="data row3 col1" id="T_488fe_row3_col1">5,299.00</td>
+<th class="row_heading level0 row3" id="T_0ff58_level0_row3">3</th>
+<td class="data row3 col0" id="T_0ff58_row3_col0">Words occurring twice</td>
+<td class="data row3 col1" id="T_0ff58_row3_col1">5,299.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row4" id="T_488fe_level0_row4">4</th>
-<td class="data row4 col0" id="T_488fe_row4_col0">Word types occurring &lt; 3 times</td>
-<td class="data row4 col1" id="T_488fe_row4_col1">19,242.00</td>
+<th class="row_heading level0 row4" id="T_0ff58_level0_row4">4</th>
+<td class="data row4 col0" id="T_0ff58_row4_col0">Word types occurring &lt; 3 times</td>
+<td class="data row4 col1" id="T_0ff58_row4_col1">19,242.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row5" id="T_488fe_level0_row5">5</th>
-<td class="data row5 col0" id="T_488fe_row5_col0">Rare-token occurrences</td>
-<td class="data row5 col1" id="T_488fe_row5_col1">24,541.00</td>
+<th class="row_heading level0 row5" id="T_0ff58_level0_row5">5</th>
+<td class="data row5 col0" id="T_0ff58_row5_col0">Rare-token occurrences</td>
+<td class="data row5 col1" id="T_0ff58_row5_col1">24,541.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row6" id="T_488fe_level0_row6">6</th>
-<td class="data row6 col0" id="T_488fe_row6_col0">Rare types as % of vocabulary</td>
-<td class="data row6 col1" id="T_488fe_row6_col1">50.73</td>
+<th class="row_heading level0 row6" id="T_0ff58_level0_row6">6</th>
+<td class="data row6 col0" id="T_0ff58_row6_col0">Rare types as % of vocabulary</td>
+<td class="data row6 col1" id="T_0ff58_row6_col1">50.73</td>
 </tr>
 </tbody>
 </table>
@@ -9161,39 +9142,39 @@ Distinct observed trigrams: 1,114,721
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_8acea">
+<table id="T_1de3e">
 <thead>
 <tr>
 <th class="blank level0"> </th>
-<th class="col_heading level0 col0" id="T_8acea_level0_col0">Statistic</th>
-<th class="col_heading level0 col1" id="T_8acea_level0_col1">Before <unk></unk></th>
-<th class="col_heading level0 col2" id="T_8acea_level0_col2">After <unk></unk></th>
+<th class="col_heading level0 col0" id="T_1de3e_level0_col0">Statistic</th>
+<th class="col_heading level0 col1" id="T_1de3e_level0_col1">Before <unk></unk></th>
+<th class="col_heading level0 col2" id="T_1de3e_level0_col2">After <unk></unk></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_8acea_level0_row0">0</th>
-<td class="data row0 col0" id="T_8acea_row0_col0">Vocabulary size</td>
-<td class="data row0 col1" id="T_8acea_row0_col1">37,933.00</td>
-<td class="data row0 col2" id="T_8acea_row0_col2">18,692.00</td>
+<th class="row_heading level0 row0" id="T_1de3e_level0_row0">0</th>
+<td class="data row0 col0" id="T_1de3e_row0_col0">Vocabulary size</td>
+<td class="data row0 col1" id="T_1de3e_row0_col1">37,933.00</td>
+<td class="data row0 col2" id="T_1de3e_row0_col2">18,692.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_8acea_level0_row1">1</th>
-<td class="data row1 col0" id="T_8acea_row1_col0">Rare word types replaced</td>
-<td class="data row1 col1" id="T_8acea_row1_col1">0.00</td>
-<td class="data row1 col2" id="T_8acea_row1_col2">19,242.00</td>
+<th class="row_heading level0 row1" id="T_1de3e_level0_row1">1</th>
+<td class="data row1 col0" id="T_1de3e_row1_col0">Rare word types replaced</td>
+<td class="data row1 col1" id="T_1de3e_row1_col1">0.00</td>
+<td class="data row1 col2" id="T_1de3e_row1_col2">19,242.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row2" id="T_8acea_level0_row2">2</th>
-<td class="data row2 col0" id="T_8acea_row2_col0">Training token occurrences mapped to <unk></unk></td>
-<td class="data row2 col1" id="T_8acea_row2_col1">0.00</td>
-<td class="data row2 col2" id="T_8acea_row2_col2">24,541.00</td>
+<th class="row_heading level0 row2" id="T_1de3e_level0_row2">2</th>
+<td class="data row2 col0" id="T_1de3e_row2_col0">Training token occurrences mapped to <unk></unk></td>
+<td class="data row2 col1" id="T_1de3e_row2_col1">0.00</td>
+<td class="data row2 col2" id="T_1de3e_row2_col2">24,541.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row3" id="T_8acea_level0_row3">3</th>
-<td class="data row3 col0" id="T_8acea_row3_col0">Percent of training tokens mapped</td>
-<td class="data row3 col1" id="T_8acea_row3_col1">0.00</td>
-<td class="data row3 col2" id="T_8acea_row3_col2">1.44</td>
+<th class="row_heading level0 row3" id="T_1de3e_level0_row3">3</th>
+<td class="data row3 col0" id="T_1de3e_row3_col0">Percent of training tokens mapped</td>
+<td class="data row3 col1" id="T_1de3e_row3_col1">0.00</td>
+<td class="data row3 col2" id="T_1de3e_row3_col2">1.44</td>
 </tr>
 </tbody>
 </table>
@@ -9258,27 +9239,27 @@ Distinct observed trigrams: 1,114,721
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_94ae9">
+<table id="T_640f6">
 <thead>
 <tr>
 <th class="blank level0"> </th>
-<th class="col_heading level0 col0" id="T_94ae9_level0_col0">Category</th>
-<th class="col_heading level0 col1" id="T_94ae9_level0_col1">Count</th>
-<th class="col_heading level0 col2" id="T_94ae9_level0_col2">Percentage</th>
+<th class="col_heading level0 col0" id="T_640f6_level0_col0">Category</th>
+<th class="col_heading level0 col1" id="T_640f6_level0_col1">Count</th>
+<th class="col_heading level0 col2" id="T_640f6_level0_col2">Percentage</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_94ae9_level0_row0">0</th>
-<td class="data row0 col0" id="T_94ae9_row0_col0">Known test tokens</td>
-<td class="data row0 col1" id="T_94ae9_row0_col1">423339</td>
-<td class="data row0 col2" id="T_94ae9_row0_col2">99.08%</td>
+<th class="row_heading level0 row0" id="T_640f6_level0_row0">0</th>
+<td class="data row0 col0" id="T_640f6_row0_col0">Known test tokens</td>
+<td class="data row0 col1" id="T_640f6_row0_col1">423339</td>
+<td class="data row0 col2" id="T_640f6_row0_col2">99.08%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_94ae9_level0_row1">1</th>
-<td class="data row1 col0" id="T_94ae9_row1_col0">OOV test tokens</td>
-<td class="data row1 col1" id="T_94ae9_row1_col1">3939</td>
-<td class="data row1 col2" id="T_94ae9_row1_col2">0.92%</td>
+<th class="row_heading level0 row1" id="T_640f6_level0_row1">1</th>
+<td class="data row1 col0" id="T_640f6_row1_col0">OOV test tokens</td>
+<td class="data row1 col1" id="T_640f6_row1_col1">3939</td>
+<td class="data row1 col2" id="T_640f6_row1_col2">0.92%</td>
 </tr>
 </tbody>
 </table>
@@ -11365,12 +11346,12 @@ Case-type distribution:
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_37eca">
+<table id="T_3b8a8">
 <thead>
 <tr>
 <th class="index_name level0">Model</th>
-<th class="col_heading level0 col0" id="T_37eca_level0_col0">With UNK handling</th>
-<th class="col_heading level0 col1" id="T_37eca_level0_col1">Without UNK handling</th>
+<th class="col_heading level0 col0" id="T_3b8a8_level0_col0">With UNK handling</th>
+<th class="col_heading level0 col1" id="T_3b8a8_level0_col1">Without UNK handling</th>
 </tr>
 <tr>
 <th class="index_name level0">Case type</th>
@@ -11380,24 +11361,24 @@ Case-type distribution:
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_37eca_level0_row0">Deliberate OOV context</th>
-<td class="data row0 col0" id="T_37eca_row0_col0">0.00%</td>
-<td class="data row0 col1" id="T_37eca_row0_col1">0.00%</td>
+<th class="row_heading level0 row0" id="T_3b8a8_level0_row0">Deliberate OOV context</th>
+<td class="data row0 col0" id="T_3b8a8_row0_col0">0.00%</td>
+<td class="data row0 col1" id="T_3b8a8_row0_col1">0.00%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_37eca_level0_row1">Held-out context</th>
-<td class="data row1 col0" id="T_37eca_row1_col0">0.00%</td>
-<td class="data row1 col1" id="T_37eca_row1_col1">0.00%</td>
+<th class="row_heading level0 row1" id="T_3b8a8_level0_row1">Held-out context</th>
+<td class="data row1 col0" id="T_3b8a8_row1_col0">0.00%</td>
+<td class="data row1 col1" id="T_3b8a8_row1_col1">0.00%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row2" id="T_37eca_level0_row2">Known-target sanity check</th>
-<td class="data row2 col0" id="T_37eca_row2_col0">100.00%</td>
-<td class="data row2 col1" id="T_37eca_row2_col1">100.00%</td>
+<th class="row_heading level0 row2" id="T_3b8a8_level0_row2">Known-target sanity check</th>
+<td class="data row2 col0" id="T_3b8a8_row2_col0">100.00%</td>
+<td class="data row2 col1" id="T_3b8a8_row2_col1">100.00%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row3" id="T_37eca_level0_row3">Target mapped to <unk></unk></th>
-<td class="data row3 col0" id="T_37eca_row3_col0">100.00%</td>
-<td class="data row3 col1" id="T_37eca_row3_col1">0.00%</td>
+<th class="row_heading level0 row3" id="T_3b8a8_level0_row3">Target mapped to <unk></unk></th>
+<td class="data row3 col0" id="T_3b8a8_row3_col0">100.00%</td>
+<td class="data row3 col1" id="T_3b8a8_row3_col1">0.00%</td>
 </tr>
 </tbody>
 </table>
@@ -11456,36 +11437,36 @@ Case-type distribution:
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_5d3be">
+<table id="T_e10c7">
 <thead>
 <tr>
 <th class="blank level0"> </th>
-<th class="col_heading level0 col0" id="T_5d3be_level0_col0">Model</th>
-<th class="col_heading level0 col1" id="T_5d3be_level0_col1">UNK</th>
-<th class="col_heading level0 col2" id="T_5d3be_level0_col2">Next Word Accuracy</th>
-<th class="col_heading level0 col3" id="T_5d3be_level0_col3">Missing Word Accuracy</th>
-<th class="col_heading level0 col4" id="T_5d3be_level0_col4">OOV Rate</th>
-<th class="col_heading level0 col5" id="T_5d3be_level0_col5">Coverage</th>
+<th class="col_heading level0 col0" id="T_e10c7_level0_col0">Model</th>
+<th class="col_heading level0 col1" id="T_e10c7_level0_col1">UNK</th>
+<th class="col_heading level0 col2" id="T_e10c7_level0_col2">Next Word Accuracy</th>
+<th class="col_heading level0 col3" id="T_e10c7_level0_col3">Missing Word Accuracy</th>
+<th class="col_heading level0 col4" id="T_e10c7_level0_col4">OOV Rate</th>
+<th class="col_heading level0 col5" id="T_e10c7_level0_col5">Coverage</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_5d3be_level0_row0">0</th>
-<td class="data row0 col0" id="T_5d3be_row0_col0">Without UNK handling</td>
-<td class="data row0 col1" id="T_5d3be_row0_col1">No</td>
-<td class="data row0 col2" id="T_5d3be_row0_col2">45.83%</td>
-<td class="data row0 col3" id="T_5d3be_row0_col3">30.00%</td>
-<td class="data row0 col4" id="T_5d3be_row0_col4">0.92%</td>
-<td class="data row0 col5" id="T_5d3be_row0_col5">99.08%</td>
+<th class="row_heading level0 row0" id="T_e10c7_level0_row0">0</th>
+<td class="data row0 col0" id="T_e10c7_row0_col0">Without UNK handling</td>
+<td class="data row0 col1" id="T_e10c7_row0_col1">No</td>
+<td class="data row0 col2" id="T_e10c7_row0_col2">45.83%</td>
+<td class="data row0 col3" id="T_e10c7_row0_col3">30.00%</td>
+<td class="data row0 col4" id="T_e10c7_row0_col4">0.92%</td>
+<td class="data row0 col5" id="T_e10c7_row0_col5">99.08%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_5d3be_level0_row1">1</th>
-<td class="data row1 col0" id="T_5d3be_row1_col0">With UNK handling</td>
-<td class="data row1 col1" id="T_5d3be_row1_col1">Yes</td>
-<td class="data row1 col2" id="T_5d3be_row1_col2">54.17%</td>
-<td class="data row1 col3" id="T_5d3be_row1_col3">55.00%</td>
-<td class="data row1 col4" id="T_5d3be_row1_col4">0.92%</td>
-<td class="data row1 col5" id="T_5d3be_row1_col5">99.08%</td>
+<th class="row_heading level0 row1" id="T_e10c7_level0_row1">1</th>
+<td class="data row1 col0" id="T_e10c7_row1_col0">With UNK handling</td>
+<td class="data row1 col1" id="T_e10c7_row1_col1">Yes</td>
+<td class="data row1 col2" id="T_e10c7_row1_col2">54.17%</td>
+<td class="data row1 col3" id="T_e10c7_row1_col3">55.00%</td>
+<td class="data row1 col4" id="T_e10c7_row1_col4">0.92%</td>
+<td class="data row1 col5" id="T_e10c7_row1_col5">99.08%</td>
 </tr>
 </tbody>
 </table>

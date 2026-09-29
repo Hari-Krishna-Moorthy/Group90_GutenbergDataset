@@ -62,15 +62,6 @@ random.seed(SEED)
 np.random.seed(SEED)
 pd.set_option("display.max_colwidth", 90)
 
-# Store NLTK resources inside the project so the corpus is available locally.
-# The folder already contains the official NLTK packages, but the download loop
-# also makes the notebook work if a package is accidentally removed.
-NLTK_DATA_DIR = Path.cwd() / "data" / "nltk_data"
-NLTK_DATA_DIR.mkdir(parents=True, exist_ok=True)
-
-# Search the project-local folder before checking NLTK's other data locations.
-if str(NLTK_DATA_DIR) not in nltk.data.path:
-    nltk.data.path.insert(0, str(NLTK_DATA_DIR))
 
 # Map each package name to the path that NLTK expects after installation.
 required_resources = {
@@ -81,22 +72,13 @@ required_resources = {
 
 # Download only resources that are missing; existing local files are reused.
 for package, resource_path in required_resources.items():
-    try:
-        nltk.data.find(resource_path)
-    except LookupError:
-        nltk.download(
-            package,
-            download_dir=str(NLTK_DATA_DIR),
-            quiet=True,
-            raise_on_error=True,
-        )
+    nltk.data.find(resource_path)
 
 from nltk.corpus import gutenberg
 
 print(f"Python: {sys.version.split()[0]}")
 print(f"NLTK: {nltk.__version__}")
 print(f"Random seed: {SEED}")
-print(f"Local NLTK data folder: {NLTK_DATA_DIR.resolve()}")
 
 
 # ## 4. Load and inspect the NLTK Gutenberg Corpus

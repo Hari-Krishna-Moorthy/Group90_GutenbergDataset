@@ -30,12 +30,11 @@ PACKAGE_FILES := \
 # make export-pdf CHROME=/path/to/google-chrome
 CHROME ?= /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
 
-.PHONY: help all setup data run validate export export-files export-py export-html export-pdf package clean-exports
+.PHONY: help all setup run validate export export-files export-py export-html export-pdf package clean-exports
 
 help:
 	@echo "Available commands:"
 	@echo "  make setup        Create .env and install Python requirements"
-	@echo "  make data         Download NLTK resources into data/nltk_data"
 	@echo "  make run          Execute every notebook cell and save outputs"
 	@echo "  make validate     Check that all code cells ran without errors"
 	@echo "  make export-py    Export the notebook to exports/*.py"
@@ -43,10 +42,10 @@ help:
 	@echo "  make export-pdf   Export HTML and print it to exports/*.pdf"
 	@echo "  make package      Create the exports and submission ZIP"
 	@echo "  make export       Create the PY, HTML, PDF, and submission ZIP"
-	@echo "  make all          Setup, download data, run, validate, and export"
+	@echo "  make all          Setup, download run, validate, and export"
 	@echo "  make clean-exports Remove only generated files from exports/"
 
-all: setup data run validate export
+all: setup run validate export
 
 # Create the environment once and reinstall only when requirements.txt changes.
 setup:
@@ -58,19 +57,8 @@ setup:
 	fi
 	@echo "Python environment is ready: $(PYTHON)"
 
-# Keep the official NLTK packages inside the project for reproducible runs.
-data: setup
-	@mkdir -p $(LOCAL_NLTK_DATA)
-	@if [ -f "$(LOCAL_NLTK_DATA)/corpora/gutenberg.zip" ] && \
-		[ -f "$(LOCAL_NLTK_DATA)/tokenizers/punkt.zip" ] && \
-		[ -f "$(LOCAL_NLTK_DATA)/tokenizers/punkt_tab.zip" ]; then \
-		echo "Local NLTK resources are already available."; \
-	else \
-		$(PYTHON) -m nltk.downloader -d $(LOCAL_NLTK_DATA) gutenberg punkt punkt_tab; \
-	fi
-
 # Execute the notebook in place so tables, metrics, and plots are saved.
-run: setup data
+run: setup
 	$(NBCONVERT) \
 		--to notebook \
 		--execute \
