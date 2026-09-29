@@ -36,7 +36,7 @@ The project investigates how a trigram language model behaves when it encounters
 - predict the next word from a preceding context;
 - predict a word hidden inside a sentence;
 - compare models with and without unknown-word handling; and
-- evaluate accuracy, OOV rate, coverage, and perplexity.
+- evaluate accuracy, OOV rate, and coverage.
 
 ## Dataset
 
@@ -74,7 +74,7 @@ P(current word | previous word 1, previous word 2)
 
 For example, the model uses the words `she was` to estimate a likely next word.
 
-The notebook maintains reusable functions for trigram and context counting, probability calculation, next-word prediction, missing-word prediction, test-token mapping, and test-set perplexity.
+The notebook maintains reusable functions for trigram and context counting, probability calculation, next-word prediction, missing-word prediction, and test-token mapping.
 
 ## Unknown-word handling
 
@@ -107,7 +107,7 @@ One word is hidden inside a sentence. Candidate words are scored using the local
 
 The diagnostic test cases are derived from held-out Gutenberg sentences and include known-word contexts, observed continuations, unseen contexts, naturally occurring OOV words, and deliberately inserted unseen words such as `spaceship` or `quantum`.
 
-The notebook contains 24 next-word cases and 20 missing-word cases. These diagnostic cases provide understandable success and failure examples. Perplexity is calculated over the full held-out test set for a broader evaluation.
+The notebook contains 24 next-word cases and 20 missing-word cases. These diagnostic cases provide understandable success and failure examples.
 
 ## Evaluation metrics
 
@@ -117,9 +117,6 @@ The following metrics are calculated during notebook execution:
 - **Missing-word accuracy:** correctly predicted hidden words divided by missing-word cases.
 - **OOV rate:** test tokens absent from the original training vocabulary divided by all test tokens.
 - **Coverage:** test tokens present in the original training vocabulary divided by all test tokens.
-- **Perplexity:** the model's average uncertainty over the complete held-out test set; lower finite values indicate less surprise.
-
-Infinite perplexity is reported explicitly when any evaluated event receives probability zero.
 
 ## Tables and visualizations
 
@@ -132,8 +129,7 @@ It also includes seven required visualizations:
 3. rare-word frequency distribution;
 4. vocabulary size before and after `<UNK>`;
 5. known versus OOV test-token coverage;
-6. prediction accuracy comparison; and
-7. perplexity comparison.
+6. prediction accuracy comparison.
 
 ## Project structure
 

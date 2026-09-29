@@ -1,16 +1,17 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # N-Gram Language Modeling with Unknown Words
+# # Group90_GutenbergDataset
 # 
 # | Assignment field | Details |
 # |---|---|
 # | **Group Number** | 90 |
+# | **Assignment** | 1 |
 # | **Problem Statement** | 9 - N-gram Language Modeling with Unknown Words |
 # | **Dataset** | NLTK Gutenberg Corpus |
 # | **Member 1** | HARI KRISHNA MOORTHY T - 2025ag05393 |
 # | **Member 2** | SHREEJA MAHAPATRA - 2025ag05424 |
-# | **Member 3** | NAVEEN RANJOLKAR - 2025ag0539 |
+# | **Member 3** | NAVEEN RANJOLKAR - 2025ag05390 |
 # | **Member 4** | SOMVANSHI PRASAD DIGAMBAR - 2025ag05285 |
 # 
 # ## 1. Introduction
@@ -31,13 +32,13 @@
 # - perform next-word and missing-word prediction;
 # - compare models with and without `<UNK>`;
 # - compare trigram models with and without `<UNK>` handling; and
-# - evaluate accuracy, OOV rate, coverage, and perplexity.
+# - evaluate accuracy, OOV rate, and coverage.
 
 # ## 3. Import libraries and reproducible setup
 # 
 # The setup checks for NLTK resources and downloads them only when absent. The fixed seed makes any sampling deterministic.
 
-# In[184]:
+# In[1]:
 
 
 # Standard-library tools for paths, counting, mathematics, randomness, and text matching.
@@ -102,7 +103,7 @@ print(f"Local NLTK data folder: {NLTK_DATA_DIR.resolve()}")
 # 
 # We first list every available Gutenberg file and then load all books. Combining the complete corpus provides a larger and more varied collection of sentences for training, rare-word analysis, and `<UNK>` evaluation.
 
-# In[185]:
+# In[2]:
 
 
 # Ask NLTK for every file identifier available in its Gutenberg Corpus.
@@ -115,7 +116,7 @@ print(f"Number of books available: {len(available_books)}")
 print("Selection: all available Gutenberg books")
 
 
-# In[186]:
+# In[3]:
 
 
 # These containers collect the text, sentences, tokens, and statistics from all books.
@@ -164,7 +165,7 @@ display(per_book_stats_df)
 # 4. Two `<START>` tokens and one `<END>` token are added during trigram counting. Two starts are required because a trigram needs two preceding tokens.
 # 5. `<UNK>` is **not** added yet; it is learned from training frequencies later.
 
-# In[187]:
+# In[4]:
 
 
 # Accept alphabetic words and words with an internal apostrophe; reject punctuation/numbers.
@@ -192,7 +193,7 @@ display(pd.DataFrame(example_rows))
 # 
 # The corpus is randomly split at sentence boundaries: 80% of complete sentences are used for training and 20% are used for testing. The fixed random seed makes the split reproducible. The split is completed before vocabulary and `<UNK>` statistics are learned, which prevents test information from leaking into training.
 
-# In[188]:
+# In[5]:
 
 
 # Shuffle sentence indices rather than individual words so sentence boundaries remain intact.
@@ -222,7 +223,7 @@ display(split_df.style.format({"Percentage": "{:.1f}%"}))
 # 
 # EDA is reported on the training split because training frequencies determine the vocabulary and rare-word rule. This also avoids looking at test data when designing `<UNK>`.
 
-# In[189]:
+# In[6]:
 
 
 # Flatten each split only for frequency calculations; the sentence lists remain unchanged.
@@ -247,7 +248,7 @@ display(frequency_stats_df.style.format({"Value": lambda x: f"{x:,.2f}" if isins
 display(pd.DataFrame(train_frequency.most_common(20), columns=["Word", "Frequency"]))
 
 
-# In[190]:
+# In[7]:
 
 
 # Plot the twenty words with the largest training counts.
@@ -263,7 +264,7 @@ plt.show()
 print("Interpretation: Function words dominate the corpus, so they are likely predictions in many common contexts.")
 
 
-# In[191]:
+# In[8]:
 
 
 # Count how many word types occur once, twice, three times, and so on.
@@ -284,7 +285,7 @@ plt.show()
 print("Interpretation: Most word types occur only a few times, while a small number occur very often.")
 
 
-# In[192]:
+# In[9]:
 
 
 # Compare the two groups that will be replaced because their frequency is below 3.
@@ -311,7 +312,7 @@ print("Interpretation: The large rare-word tail motivates grouping frequency-1 a
 # 
 # The class below stores trigram, context, and unigram counts. Prediction is deterministic: the highest probability wins, then training frequency and alphabetical order break ties.
 
-# In[193]:
+# In[10]:
 
 
 # Special markers represent sentence boundaries and unknown words.
@@ -379,21 +380,6 @@ class TrigramLanguageModel:
             return None
         return min(observed, key=lambda w: (-self.probability(w, context), -self.word_counts[w], w))
 
-    def sentence_perplexity(self, sentences):
-        # Return infinity immediately if any held-out trigram has probability zero.
-        log_probability_sum = 0.0
-        predicted_tokens = 0
-        for sentence in sentences:
-            mapped = self.transform_sentence(sentence, training=False)
-            padded = [START, START] + mapped + [END]
-            for i in range(2, len(padded)):
-                probability = self.probability(padded[i], padded[i-2:i])
-                predicted_tokens += 1
-                if probability <= 0:
-                    return math.inf
-                log_probability_sum += math.log(probability)
-        return math.exp(-log_probability_sum / predicted_tokens)
-
 base_model = TrigramLanguageModel(train_sentences, use_unk=False)
 print(f"Base vocabulary size (including <END>): {len(base_model.vocabulary):,}")
 print(f"Distinct observed trigrams: {len(base_model.trigram_counts):,}")
@@ -407,7 +393,7 @@ print(f"Distinct observed trigrams: {len(base_model.trigram_counts):,}")
 # - An **unknown word** is unavailable to the model at prediction time.
 # - An **out-of-vocabulary (OOV) word** is absent from the model's training vocabulary.
 
-# In[194]:
+# In[11]:
 
 
 # Rebuild the model after replacing training words with frequency below 3 by <UNK>.
@@ -433,7 +419,7 @@ plt.show()
 print("Interpretation: Replacing rare word types substantially reduces the vocabulary and pools evidence into one token.")
 
 
-# In[195]:
+# In[12]:
 
 
 # A test token is OOV when it never appeared in the original training vocabulary.
@@ -460,7 +446,7 @@ plt.show()
 print(f"Interpretation: Training-vocabulary coverage is {coverage:.2%}; the remaining {oov_rate:.2%} is OOV.")
 
 
-# In[196]:
+# In[13]:
 
 
 # Collect five examples showing exactly which test words become <UNK>.
@@ -476,9 +462,9 @@ display(pd.DataFrame(unknown_examples))
 
 # ## 10. Test case generation
 # 
-# The 24 diagnostic cases below come from real held-out Gutenberg sentences. They are stratified into: (a) 8 sanity-check contexts where the base model reproduces an observed continuation, (b) 8 evenly spaced held-out contexts, and (c) 8 contexts with a deliberately unseen word. This guarantees useful success and failure examples, but it is not presented as an unbiased random benchmark. Full-test perplexity remains the broader held-out evaluation.
+# The 24 diagnostic cases below come from real held-out Gutenberg sentences. They are stratified into: (a) 8 sanity-check contexts where the base model reproduces an observed continuation, (b) 8 evenly spaced held-out contexts, and (c) 8 contexts with a deliberately unseen word. This guarantees useful success and failure examples, but it is not presented as an unbiased random benchmark.
 
-# In[197]:
+# In[14]:
 
 
 # These invented words create controlled OOV contexts alongside real held-out sentences.
@@ -531,7 +517,7 @@ print(f"Next-word cases: {len(next_cases_df)}")
 # 
 # Both model configurations use the same cases. For the `<UNK>` model, correctness is judged against the mapped target: predicting `<UNK>` is correct when the actual target is outside that model's vocabulary.
 
-# In[198]:
+# In[15]:
 
 
 # Evaluate the same cases with the base vocabulary and the <UNK> vocabulary.
@@ -565,7 +551,7 @@ display(next_results_df)
 # 
 # The 20 diagnostic cases are deliberately balanced to show different behaviors: 6 known-target sanity checks, 5 ordinary held-out contexts, 5 held-out targets that map to `<UNK>`, and 4 contexts containing an inserted OOV word. The `<UNK>`-target cases are selected where the `<UNK>` model has learned a matching local pattern. Therefore, this table demonstrates the capability of unknown-word handling; it is not an unbiased estimate of accuracy over every Gutenberg sentence.
 
-# In[199]:
+# In[16]:
 
 
 def predict_missing(model, left_words, right_words, candidate_limit=500):
@@ -670,7 +656,7 @@ print("Case-type distribution:")
 display(missing_cases_df["Case type"].value_counts().rename_axis("Case type").reset_index(name="Cases"))
 
 
-# In[200]:
+# In[17]:
 
 
 # Run both models on every missing-word case and retain detailed row-level results.
@@ -702,9 +688,9 @@ display(missing_accuracy_by_type_df.style.format("{:.2%}"))
 
 # ## 13. Evaluation metrics
 # 
-# Accuracy is the fraction of correct test cases. Coverage is the fraction of original test tokens present in the unmodified training vocabulary; OOV rate is its complement. Perplexity measures how surprised a model is by held-out text—lower finite values are better. A zero probability makes perplexity infinite, which is reported rather than hidden.
+# Accuracy is the fraction of correct test cases. Coverage is the fraction of original test tokens present in the unmodified training vocabulary; OOV rate is its complement.
 
-# In[201]:
+# In[18]:
 
 
 # Aggregate the two prediction accuracies and corpus-level coverage metrics by model.
@@ -712,7 +698,6 @@ comparison_rows = []
 for model_name, model in model_configs:
     next_accuracy = next_results_df.loc[next_results_df["Model"] == model_name, "Correct"].mean()
     missing_accuracy = missing_results_df.loc[missing_results_df["Model"] == model_name, "Correct"].mean()
-    perplexity = model.sentence_perplexity(test_sentences)
     comparison_rows.append({
         "Model": model_name,
         "UNK": "Yes" if model.use_unk else "No",
@@ -720,18 +705,17 @@ for model_name, model in model_configs:
         "Missing Word Accuracy": missing_accuracy,
         "OOV Rate": oov_rate,
         "Coverage": coverage,
-        "Perplexity": perplexity,
     })
 comparison_df = pd.DataFrame(comparison_rows)
 display(comparison_df.style.format({
     "Next Word Accuracy": "{:.2%}", "Missing Word Accuracy": "{:.2%}",
-    "OOV Rate": "{:.2%}", "Coverage": "{:.2%}", "Perplexity": lambda x: "∞" if math.isinf(x) else f"{x:,.2f}",
+    "OOV Rate": "{:.2%}", "Coverage": "{:.2%}",
 }))
 
 
 # ## 14. Visual comparison
 
-# In[202]:
+# In[19]:
 
 
 # Display next-word and missing-word accuracy side by side for both models.
@@ -750,32 +734,9 @@ plt.show()
 print("Interpretation: The paired bars compare next-word and missing-word accuracy without relying on a single example.")
 
 
-# In[203]:
-
-
-# Plot perplexity; infinite values are drawn at a temporary display height and labeled.
-perplexities = comparison_df["Perplexity"].to_numpy(dtype=float)
-finite_values = perplexities[np.isfinite(perplexities)]
-cap = (finite_values.max() * 1.25) if len(finite_values) else 1.0
-display_values = np.where(np.isfinite(perplexities), perplexities, cap)
-
-fig, ax = plt.subplots(figsize=(11, 5))
-bars = ax.bar(comparison_df["Model"], display_values, color=["#4C78A8", "#54A24B"])
-for bar, actual in zip(bars, perplexities):
-    label = "∞ (zero probability)" if math.isinf(actual) else f"{actual:,.1f}"
-    ax.text(bar.get_x() + bar.get_width()/2, bar.get_height(), label, ha="center", va="bottom", fontsize=9)
-ax.set_title("Test-Set Perplexity Across Two Trigram Models")
-ax.set_xlabel("Model configuration")
-ax.set_ylabel("Perplexity (infinite bars shown at a display cap)")
-ax.tick_params(axis="x", rotation=25)
-plt.tight_layout()
-plt.show()
-print("Interpretation: Infinite perplexity means at least one held-out trigram received probability zero. The displayed cap is only for visibility; the table retains infinity.")
-
-
 # ## 15. Sample prediction and error analysis
 
-# In[204]:
+# In[20]:
 
 
 # Select a small number of successes and failures for readable qualitative analysis.
@@ -802,11 +763,11 @@ sample_analysis_df = pd.DataFrame(analysis_rows)
 display(sample_analysis_df)
 
 
-# Common causes of errors include sparse trigram counts, unseen contexts, OOV words, ambiguity, and the limited two-word history. `<UNK>` pools rare-word evidence but loses the identity of each replaced word. Unseen trigrams receive probability zero, which can prevent a prediction and produce infinite perplexity.
+# Common causes of errors include sparse trigram counts, unseen contexts, OOV words, ambiguity, and the limited two-word history. `<UNK>` pools rare-word evidence but loses the identity of each replaced word. Unseen trigrams receive probability zero, which can prevent a prediction.
 
 # ## 16. Final analysis
 
-# In[205]:
+# In[21]:
 
 
 # Generate conclusion statements directly from the calculated results.
@@ -818,14 +779,13 @@ print(f"2. Vocabulary size changed from {len(base_model.vocabulary):,} to {len(u
 print("3. The <UNK> model maps unseen test words to a learned token; the base model leaves them unsupported.")
 print(f"4. Next-word accuracy changed from {base_result['Next Word Accuracy']:.2%} without <UNK> to {unk_result['Next Word Accuracy']:.2%} with <UNK>.")
 print(f"5. Missing-word accuracy changed from {base_result['Missing Word Accuracy']:.2%} without <UNK> to {unk_result['Missing Word Accuracy']:.2%} with <UNK>.")
-print("6. An unseen trigram has probability zero; the comparison table reports the resulting perplexity honestly.")
-print("7. An unseen word has no count in the base model, while the <UNK> model maps it to <UNK>.")
-print("8. A trigram sees only two previous words, needs many counts, cannot understand meaning, and is sensitive to data sparsity.")
+print("6. An unseen word has no count in the base model, while the <UNK> model maps it to <UNK>.")
+print("7. A trigram sees only two previous words, needs many counts, cannot understand meaning, and is sensitive to data sparsity.")
 
 
 # ## 17. Conclusion
 # 
-# This notebook implemented two trigram language-model configurations using all books in the NLTK Gutenberg Corpus and evaluated both next-word and missing-word prediction. The executed comparison shows the measured effect of rare-word replacement. `<UNK>` provides a defined representation for unfamiliar words and reduces vocabulary size. It does not remove ambiguity, unseen trigram contexts, or the limited two-word history of a trigram, so the calculated results—not a universal claim—should guide the comparison.
+# This notebook implemented two trigram language model configurations using all books in the NLTK Gutenberg Corpus and evaluated both next-word and missing-word prediction. The executed comparison shows the measured effect of rare word replacement. `<UNK>` provides a defined representation for unfamiliar words and reduces vocabulary size. It does not remove ambiguity, unseen trigram contexts, or the limited two word history of a trigram, so the calculated results—not a universal claim—should guide the comparison.
 # 
 # 
 # ## 18. References

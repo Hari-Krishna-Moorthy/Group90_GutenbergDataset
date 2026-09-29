@@ -7848,7 +7848,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="N-Gram-Language-Modeling-with-Unknown-Words">N-Gram Language Modeling with Unknown Words<a class="anchor-link" href="#N-Gram-Language-Modeling-with-Unknown-Words">¶</a></h1><table>
+<h1 id="Group90_GutenbergDataset">Group90_GutenbergDataset<a class="anchor-link" href="#Group90_GutenbergDataset">¶</a></h1><table>
 <thead>
 <tr>
 <th>Assignment field</th>
@@ -7859,6 +7859,10 @@ a.anchor-link {
 <tr>
 <td><strong>Group Number</strong></td>
 <td>90</td>
+</tr>
+<tr>
+<td><strong>Assignment</strong></td>
+<td>1</td>
 </tr>
 <tr>
 <td><strong>Problem Statement</strong></td>
@@ -7878,7 +7882,7 @@ a.anchor-link {
 </tr>
 <tr>
 <td><strong>Member 3</strong></td>
-<td>NAVEEN RANJOLKAR - 2025ag0539</td>
+<td>NAVEEN RANJOLKAR - 2025ag05390</td>
 </tr>
 <tr>
 <td><strong>Member 4</strong></td>
@@ -7907,7 +7911,7 @@ a.anchor-link {
 <li>perform next-word and missing-word prediction;</li>
 <li>compare models with and without <code>&lt;UNK&gt;</code>;</li>
 <li>compare trigram models with and without <code>&lt;UNK&gt;</code> handling; and</li>
-<li>evaluate accuracy, OOV rate, coverage, and perplexity.</li>
+<li>evaluate accuracy, OOV rate, and coverage.</li>
 </ul>
 </div>
 </div>
@@ -7928,7 +7932,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [184]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Standard-library tools for paths, counting, mathematics, randomness, and text matching.</span>
@@ -8024,7 +8028,7 @@ Local NLTK data folder: /Users/harikrishnamoorthyt/github/ml/bits-assignment/gut
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [185]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Ask NLTK for every file identifier available in its Gutenberg Corpus.</span>
@@ -8161,7 +8165,7 @@ Selection: all available Gutenberg books
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [186]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># These containers collect the text, sentences, tokens, and statistics from all books.</span>
@@ -8442,7 +8446,7 @@ Selection: all available Gutenberg books
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [187]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Accept alphabetic words and words with an internal apostrophe; reject punctuation/numbers.</span>
@@ -8547,7 +8551,7 @@ Selection: all available Gutenberg books
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [188]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Shuffle sentence indices rather than individual words so sentence boundaries remain intact.</span>
@@ -8585,33 +8589,33 @@ Selection: all available Gutenberg books
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_bca5e">
+<table id="T_67623">
 <thead>
 <tr>
 <th class="blank level0"> </th>
-<th class="col_heading level0 col0" id="T_bca5e_level0_col0">Split</th>
-<th class="col_heading level0 col1" id="T_bca5e_level0_col1">Sentences</th>
-<th class="col_heading level0 col2" id="T_bca5e_level0_col2">Percentage</th>
+<th class="col_heading level0 col0" id="T_67623_level0_col0">Split</th>
+<th class="col_heading level0 col1" id="T_67623_level0_col1">Sentences</th>
+<th class="col_heading level0 col2" id="T_67623_level0_col2">Percentage</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_bca5e_level0_row0">0</th>
-<td class="data row0 col0" id="T_bca5e_row0_col0">Training</td>
-<td class="data row0 col1" id="T_bca5e_row0_col1">78656</td>
-<td class="data row0 col2" id="T_bca5e_row0_col2">80.0%</td>
+<th class="row_heading level0 row0" id="T_67623_level0_row0">0</th>
+<td class="data row0 col0" id="T_67623_row0_col0">Training</td>
+<td class="data row0 col1" id="T_67623_row0_col1">78656</td>
+<td class="data row0 col2" id="T_67623_row0_col2">80.0%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_bca5e_level0_row1">1</th>
-<td class="data row1 col0" id="T_bca5e_row1_col0">Testing</td>
-<td class="data row1 col1" id="T_bca5e_row1_col1">19665</td>
-<td class="data row1 col2" id="T_bca5e_row1_col2">20.0%</td>
+<th class="row_heading level0 row1" id="T_67623_level0_row1">1</th>
+<td class="data row1 col0" id="T_67623_row1_col0">Testing</td>
+<td class="data row1 col1" id="T_67623_row1_col1">19665</td>
+<td class="data row1 col2" id="T_67623_row1_col2">20.0%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row2" id="T_bca5e_level0_row2">2</th>
-<td class="data row2 col0" id="T_bca5e_row2_col0">Total</td>
-<td class="data row2 col1" id="T_bca5e_row2_col1">98321</td>
-<td class="data row2 col2" id="T_bca5e_row2_col2">100.0%</td>
+<th class="row_heading level0 row2" id="T_67623_level0_row2">2</th>
+<td class="data row2 col0" id="T_67623_row2_col0">Total</td>
+<td class="data row2 col1" id="T_67623_row2_col1">98321</td>
+<td class="data row2 col2" id="T_67623_row2_col2">100.0%</td>
 </tr>
 </tbody>
 </table>
@@ -8635,7 +8639,7 @@ Selection: all available Gutenberg books
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [189]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Flatten each split only for frequency calculations; the sentence lists remain unchanged.</span>
@@ -8672,49 +8676,49 @@ Selection: all available Gutenberg books
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_82bb7">
+<table id="T_488fe">
 <thead>
 <tr>
 <th class="blank level0"> </th>
-<th class="col_heading level0 col0" id="T_82bb7_level0_col0">Statistic</th>
-<th class="col_heading level0 col1" id="T_82bb7_level0_col1">Value</th>
+<th class="col_heading level0 col0" id="T_488fe_level0_col0">Statistic</th>
+<th class="col_heading level0 col1" id="T_488fe_level0_col1">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_82bb7_level0_row0">0</th>
-<td class="data row0 col0" id="T_82bb7_row0_col0">Total training tokens</td>
-<td class="data row0 col1" id="T_82bb7_row0_col1">1,708,115.00</td>
+<th class="row_heading level0 row0" id="T_488fe_level0_row0">0</th>
+<td class="data row0 col0" id="T_488fe_row0_col0">Total training tokens</td>
+<td class="data row0 col1" id="T_488fe_row0_col1">1,708,115.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_82bb7_level0_row1">1</th>
-<td class="data row1 col0" id="T_82bb7_row1_col0">Unique training words</td>
-<td class="data row1 col1" id="T_82bb7_row1_col1">37,932.00</td>
+<th class="row_heading level0 row1" id="T_488fe_level0_row1">1</th>
+<td class="data row1 col0" id="T_488fe_row1_col0">Unique training words</td>
+<td class="data row1 col1" id="T_488fe_row1_col1">37,932.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row2" id="T_82bb7_level0_row2">2</th>
-<td class="data row2 col0" id="T_82bb7_row2_col0">Words occurring once</td>
-<td class="data row2 col1" id="T_82bb7_row2_col1">13,943.00</td>
+<th class="row_heading level0 row2" id="T_488fe_level0_row2">2</th>
+<td class="data row2 col0" id="T_488fe_row2_col0">Words occurring once</td>
+<td class="data row2 col1" id="T_488fe_row2_col1">13,943.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row3" id="T_82bb7_level0_row3">3</th>
-<td class="data row3 col0" id="T_82bb7_row3_col0">Words occurring twice</td>
-<td class="data row3 col1" id="T_82bb7_row3_col1">5,299.00</td>
+<th class="row_heading level0 row3" id="T_488fe_level0_row3">3</th>
+<td class="data row3 col0" id="T_488fe_row3_col0">Words occurring twice</td>
+<td class="data row3 col1" id="T_488fe_row3_col1">5,299.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row4" id="T_82bb7_level0_row4">4</th>
-<td class="data row4 col0" id="T_82bb7_row4_col0">Word types occurring &lt; 3 times</td>
-<td class="data row4 col1" id="T_82bb7_row4_col1">19,242.00</td>
+<th class="row_heading level0 row4" id="T_488fe_level0_row4">4</th>
+<td class="data row4 col0" id="T_488fe_row4_col0">Word types occurring &lt; 3 times</td>
+<td class="data row4 col1" id="T_488fe_row4_col1">19,242.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row5" id="T_82bb7_level0_row5">5</th>
-<td class="data row5 col0" id="T_82bb7_row5_col0">Rare-token occurrences</td>
-<td class="data row5 col1" id="T_82bb7_row5_col1">24,541.00</td>
+<th class="row_heading level0 row5" id="T_488fe_level0_row5">5</th>
+<td class="data row5 col0" id="T_488fe_row5_col0">Rare-token occurrences</td>
+<td class="data row5 col1" id="T_488fe_row5_col1">24,541.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row6" id="T_82bb7_level0_row6">6</th>
-<td class="data row6 col0" id="T_82bb7_row6_col0">Rare types as % of vocabulary</td>
-<td class="data row6 col1" id="T_82bb7_row6_col1">50.73</td>
+<th class="row_heading level0 row6" id="T_488fe_level0_row6">6</th>
+<td class="data row6 col0" id="T_488fe_row6_col0">Rare types as % of vocabulary</td>
+<td class="data row6 col1" id="T_488fe_row6_col1">50.73</td>
 </tr>
 </tbody>
 </table>
@@ -8858,7 +8862,7 @@ Selection: all available Gutenberg books
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [190]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the twenty words with the largest training counts.</span>
@@ -8901,7 +8905,7 @@ Selection: all available Gutenberg books
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [191]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Count how many word types occur once, twice, three times, and so on.</span>
@@ -8949,7 +8953,7 @@ Selection: all available Gutenberg books
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [192]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Compare the two groups that will be replaced because their frequency is below 3.</span>
@@ -9008,7 +9012,7 @@ Selection: all available Gutenberg books
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [193]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Special markers represent sentence boundaries and unknown words.</span>
@@ -9076,21 +9080,6 @@ Selection: all available Gutenberg books
             <span class="k">return</span> <span class="kc">None</span>
         <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">observed</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">context</span><span class="p">),</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">word_counts</span><span class="p">[</span><span class="n">w</span><span class="p">],</span> <span class="n">w</span><span class="p">))</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">sentence_perplexity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentences</span><span class="p">):</span>
-        <span class="c1"># Return infinity immediately if any held-out trigram has probability zero.</span>
-        <span class="n">log_probability_sum</span> <span class="o">=</span> <span class="mf">0.0</span>
-        <span class="n">predicted_tokens</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
-            <span class="n">mapped</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform_sentence</span><span class="p">(</span><span class="n">sentence</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-            <span class="n">padded</span> <span class="o">=</span> <span class="p">[</span><span class="n">START</span><span class="p">,</span> <span class="n">START</span><span class="p">]</span> <span class="o">+</span> <span class="n">mapped</span> <span class="o">+</span> <span class="p">[</span><span class="n">END</span><span class="p">]</span>
-            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">padded</span><span class="p">)):</span>
-                <span class="n">probability</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">padded</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">padded</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="n">i</span><span class="p">])</span>
-                <span class="n">predicted_tokens</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="k">if</span> <span class="n">probability</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">inf</span>
-                <span class="n">log_probability_sum</span> <span class="o">+=</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">probability</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">log_probability_sum</span> <span class="o">/</span> <span class="n">predicted_tokens</span><span class="p">)</span>
-
 <span class="n">base_model</span> <span class="o">=</span> <span class="n">TrigramLanguageModel</span><span class="p">(</span><span class="n">train_sentences</span><span class="p">,</span> <span class="n">use_unk</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Base vocabulary size (including &lt;END&gt;): </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">base_model</span><span class="o">.</span><span class="n">vocabulary</span><span class="p">)</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Distinct observed trigrams: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">base_model</span><span class="o">.</span><span class="n">trigram_counts</span><span class="p">)</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -9134,7 +9123,7 @@ Distinct observed trigrams: 1,114,721
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [194]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Rebuild the model after replacing training words with frequency below 3 by &lt;UNK&gt;.</span>
@@ -9172,39 +9161,39 @@ Distinct observed trigrams: 1,114,721
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_db588">
+<table id="T_8acea">
 <thead>
 <tr>
 <th class="blank level0"> </th>
-<th class="col_heading level0 col0" id="T_db588_level0_col0">Statistic</th>
-<th class="col_heading level0 col1" id="T_db588_level0_col1">Before <unk></unk></th>
-<th class="col_heading level0 col2" id="T_db588_level0_col2">After <unk></unk></th>
+<th class="col_heading level0 col0" id="T_8acea_level0_col0">Statistic</th>
+<th class="col_heading level0 col1" id="T_8acea_level0_col1">Before <unk></unk></th>
+<th class="col_heading level0 col2" id="T_8acea_level0_col2">After <unk></unk></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_db588_level0_row0">0</th>
-<td class="data row0 col0" id="T_db588_row0_col0">Vocabulary size</td>
-<td class="data row0 col1" id="T_db588_row0_col1">37,933.00</td>
-<td class="data row0 col2" id="T_db588_row0_col2">18,692.00</td>
+<th class="row_heading level0 row0" id="T_8acea_level0_row0">0</th>
+<td class="data row0 col0" id="T_8acea_row0_col0">Vocabulary size</td>
+<td class="data row0 col1" id="T_8acea_row0_col1">37,933.00</td>
+<td class="data row0 col2" id="T_8acea_row0_col2">18,692.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_db588_level0_row1">1</th>
-<td class="data row1 col0" id="T_db588_row1_col0">Rare word types replaced</td>
-<td class="data row1 col1" id="T_db588_row1_col1">0.00</td>
-<td class="data row1 col2" id="T_db588_row1_col2">19,242.00</td>
+<th class="row_heading level0 row1" id="T_8acea_level0_row1">1</th>
+<td class="data row1 col0" id="T_8acea_row1_col0">Rare word types replaced</td>
+<td class="data row1 col1" id="T_8acea_row1_col1">0.00</td>
+<td class="data row1 col2" id="T_8acea_row1_col2">19,242.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row2" id="T_db588_level0_row2">2</th>
-<td class="data row2 col0" id="T_db588_row2_col0">Training token occurrences mapped to <unk></unk></td>
-<td class="data row2 col1" id="T_db588_row2_col1">0.00</td>
-<td class="data row2 col2" id="T_db588_row2_col2">24,541.00</td>
+<th class="row_heading level0 row2" id="T_8acea_level0_row2">2</th>
+<td class="data row2 col0" id="T_8acea_row2_col0">Training token occurrences mapped to <unk></unk></td>
+<td class="data row2 col1" id="T_8acea_row2_col1">0.00</td>
+<td class="data row2 col2" id="T_8acea_row2_col2">24,541.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row3" id="T_db588_level0_row3">3</th>
-<td class="data row3 col0" id="T_db588_row3_col0">Percent of training tokens mapped</td>
-<td class="data row3 col1" id="T_db588_row3_col1">0.00</td>
-<td class="data row3 col2" id="T_db588_row3_col2">1.44</td>
+<th class="row_heading level0 row3" id="T_8acea_level0_row3">3</th>
+<td class="data row3 col0" id="T_8acea_row3_col0">Percent of training tokens mapped</td>
+<td class="data row3 col1" id="T_8acea_row3_col1">0.00</td>
+<td class="data row3 col2" id="T_8acea_row3_col2">1.44</td>
 </tr>
 </tbody>
 </table>
@@ -9230,7 +9219,7 @@ Distinct observed trigrams: 1,114,721
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [195]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># A test token is OOV when it never appeared in the original training vocabulary.</span>
@@ -9269,27 +9258,27 @@ Distinct observed trigrams: 1,114,721
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_0afdc">
+<table id="T_94ae9">
 <thead>
 <tr>
 <th class="blank level0"> </th>
-<th class="col_heading level0 col0" id="T_0afdc_level0_col0">Category</th>
-<th class="col_heading level0 col1" id="T_0afdc_level0_col1">Count</th>
-<th class="col_heading level0 col2" id="T_0afdc_level0_col2">Percentage</th>
+<th class="col_heading level0 col0" id="T_94ae9_level0_col0">Category</th>
+<th class="col_heading level0 col1" id="T_94ae9_level0_col1">Count</th>
+<th class="col_heading level0 col2" id="T_94ae9_level0_col2">Percentage</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_0afdc_level0_row0">0</th>
-<td class="data row0 col0" id="T_0afdc_row0_col0">Known test tokens</td>
-<td class="data row0 col1" id="T_0afdc_row0_col1">423339</td>
-<td class="data row0 col2" id="T_0afdc_row0_col2">99.08%</td>
+<th class="row_heading level0 row0" id="T_94ae9_level0_row0">0</th>
+<td class="data row0 col0" id="T_94ae9_row0_col0">Known test tokens</td>
+<td class="data row0 col1" id="T_94ae9_row0_col1">423339</td>
+<td class="data row0 col2" id="T_94ae9_row0_col2">99.08%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_0afdc_level0_row1">1</th>
-<td class="data row1 col0" id="T_0afdc_row1_col0">OOV test tokens</td>
-<td class="data row1 col1" id="T_0afdc_row1_col1">3939</td>
-<td class="data row1 col2" id="T_0afdc_row1_col2">0.92%</td>
+<th class="row_heading level0 row1" id="T_94ae9_level0_row1">1</th>
+<td class="data row1 col0" id="T_94ae9_row1_col0">OOV test tokens</td>
+<td class="data row1 col1" id="T_94ae9_row1_col1">3939</td>
+<td class="data row1 col2" id="T_94ae9_row1_col2">0.92%</td>
 </tr>
 </tbody>
 </table>
@@ -9315,7 +9304,7 @@ Distinct observed trigrams: 1,114,721
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [196]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Collect five examples showing exactly which test words become &lt;UNK&gt;.</span>
@@ -9401,7 +9390,7 @@ Distinct observed trigrams: 1,114,721
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="10.-Test-case-generation">10. Test case generation<a class="anchor-link" href="#10.-Test-case-generation">¶</a></h2><p>The 24 diagnostic cases below come from real held-out Gutenberg sentences. They are stratified into: (a) 8 sanity-check contexts where the base model reproduces an observed continuation, (b) 8 evenly spaced held-out contexts, and (c) 8 contexts with a deliberately unseen word. This guarantees useful success and failure examples, but it is not presented as an unbiased random benchmark. Full-test perplexity remains the broader held-out evaluation.</p>
+<h2 id="10.-Test-case-generation">10. Test case generation<a class="anchor-link" href="#10.-Test-case-generation">¶</a></h2><p>The 24 diagnostic cases below come from real held-out Gutenberg sentences. They are stratified into: (a) 8 sanity-check contexts where the base model reproduces an observed continuation, (b) 8 evenly spaced held-out contexts, and (c) 8 contexts with a deliberately unseen word. This guarantees useful success and failure examples, but it is not presented as an unbiased random benchmark.</p>
 </div>
 </div>
 </div>
@@ -9410,7 +9399,7 @@ Distinct observed trigrams: 1,114,721
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [197]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># These invented words create controlled OOV contexts alongside real held-out sentences.</span>
@@ -9742,7 +9731,7 @@ Distinct observed trigrams: 1,114,721
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [198]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Evaluate the same cases with the base vocabulary and the &lt;UNK&gt; vocabulary.</span>
@@ -10361,7 +10350,7 @@ Distinct observed trigrams: 1,114,721
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [199]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict_missing</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">left_words</span><span class="p">,</span> <span class="n">right_words</span><span class="p">,</span> <span class="n">candidate_limit</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
@@ -10775,7 +10764,7 @@ Case-type distribution:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [200]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Run both models on every missing-word case and retain detailed row-level results.</span>
@@ -11376,12 +11365,12 @@ Case-type distribution:
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_22b30">
+<table id="T_37eca">
 <thead>
 <tr>
 <th class="index_name level0">Model</th>
-<th class="col_heading level0 col0" id="T_22b30_level0_col0">With UNK handling</th>
-<th class="col_heading level0 col1" id="T_22b30_level0_col1">Without UNK handling</th>
+<th class="col_heading level0 col0" id="T_37eca_level0_col0">With UNK handling</th>
+<th class="col_heading level0 col1" id="T_37eca_level0_col1">Without UNK handling</th>
 </tr>
 <tr>
 <th class="index_name level0">Case type</th>
@@ -11391,24 +11380,24 @@ Case-type distribution:
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_22b30_level0_row0">Deliberate OOV context</th>
-<td class="data row0 col0" id="T_22b30_row0_col0">0.00%</td>
-<td class="data row0 col1" id="T_22b30_row0_col1">0.00%</td>
+<th class="row_heading level0 row0" id="T_37eca_level0_row0">Deliberate OOV context</th>
+<td class="data row0 col0" id="T_37eca_row0_col0">0.00%</td>
+<td class="data row0 col1" id="T_37eca_row0_col1">0.00%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_22b30_level0_row1">Held-out context</th>
-<td class="data row1 col0" id="T_22b30_row1_col0">0.00%</td>
-<td class="data row1 col1" id="T_22b30_row1_col1">0.00%</td>
+<th class="row_heading level0 row1" id="T_37eca_level0_row1">Held-out context</th>
+<td class="data row1 col0" id="T_37eca_row1_col0">0.00%</td>
+<td class="data row1 col1" id="T_37eca_row1_col1">0.00%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row2" id="T_22b30_level0_row2">Known-target sanity check</th>
-<td class="data row2 col0" id="T_22b30_row2_col0">100.00%</td>
-<td class="data row2 col1" id="T_22b30_row2_col1">100.00%</td>
+<th class="row_heading level0 row2" id="T_37eca_level0_row2">Known-target sanity check</th>
+<td class="data row2 col0" id="T_37eca_row2_col0">100.00%</td>
+<td class="data row2 col1" id="T_37eca_row2_col1">100.00%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row3" id="T_22b30_level0_row3">Target mapped to <unk></unk></th>
-<td class="data row3 col0" id="T_22b30_row3_col0">100.00%</td>
-<td class="data row3 col1" id="T_22b30_row3_col1">0.00%</td>
+<th class="row_heading level0 row3" id="T_37eca_level0_row3">Target mapped to <unk></unk></th>
+<td class="data row3 col0" id="T_37eca_row3_col0">100.00%</td>
+<td class="data row3 col1" id="T_37eca_row3_col1">0.00%</td>
 </tr>
 </tbody>
 </table>
@@ -11423,7 +11412,7 @@ Case-type distribution:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="13.-Evaluation-metrics">13. Evaluation metrics<a class="anchor-link" href="#13.-Evaluation-metrics">¶</a></h2><p>Accuracy is the fraction of correct test cases. Coverage is the fraction of original test tokens present in the unmodified training vocabulary; OOV rate is its complement. Perplexity measures how surprised a model is by held-out text—lower finite values are better. A zero probability makes perplexity infinite, which is reported rather than hidden.</p>
+<h2 id="13.-Evaluation-metrics">13. Evaluation metrics<a class="anchor-link" href="#13.-Evaluation-metrics">¶</a></h2><p>Accuracy is the fraction of correct test cases. Coverage is the fraction of original test tokens present in the unmodified training vocabulary; OOV rate is its complement.</p>
 </div>
 </div>
 </div>
@@ -11432,7 +11421,7 @@ Case-type distribution:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [201]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Aggregate the two prediction accuracies and corpus-level coverage metrics by model.</span>
@@ -11440,7 +11429,6 @@ Case-type distribution:
 <span class="k">for</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">model_configs</span><span class="p">:</span>
     <span class="n">next_accuracy</span> <span class="o">=</span> <span class="n">next_results_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">next_results_df</span><span class="p">[</span><span class="s2">"Model"</span><span class="p">]</span> <span class="o">==</span> <span class="n">model_name</span><span class="p">,</span> <span class="s2">"Correct"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
     <span class="n">missing_accuracy</span> <span class="o">=</span> <span class="n">missing_results_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">missing_results_df</span><span class="p">[</span><span class="s2">"Model"</span><span class="p">]</span> <span class="o">==</span> <span class="n">model_name</span><span class="p">,</span> <span class="s2">"Correct"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">perplexity</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">sentence_perplexity</span><span class="p">(</span><span class="n">test_sentences</span><span class="p">)</span>
     <span class="n">comparison_rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
         <span class="s2">"Model"</span><span class="p">:</span> <span class="n">model_name</span><span class="p">,</span>
         <span class="s2">"UNK"</span><span class="p">:</span> <span class="s2">"Yes"</span> <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">use_unk</span> <span class="k">else</span> <span class="s2">"No"</span><span class="p">,</span>
@@ -11448,12 +11436,11 @@ Case-type distribution:
         <span class="s2">"Missing Word Accuracy"</span><span class="p">:</span> <span class="n">missing_accuracy</span><span class="p">,</span>
         <span class="s2">"OOV Rate"</span><span class="p">:</span> <span class="n">oov_rate</span><span class="p">,</span>
         <span class="s2">"Coverage"</span><span class="p">:</span> <span class="n">coverage</span><span class="p">,</span>
-        <span class="s2">"Perplexity"</span><span class="p">:</span> <span class="n">perplexity</span><span class="p">,</span>
     <span class="p">})</span>
 <span class="n">comparison_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">comparison_rows</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">comparison_df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">({</span>
     <span class="s2">"Next Word Accuracy"</span><span class="p">:</span> <span class="s2">"</span><span class="si">{:.2%}</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"Missing Word Accuracy"</span><span class="p">:</span> <span class="s2">"</span><span class="si">{:.2%}</span><span class="s2">"</span><span class="p">,</span>
-    <span class="s2">"OOV Rate"</span><span class="p">:</span> <span class="s2">"</span><span class="si">{:.2%}</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"Coverage"</span><span class="p">:</span> <span class="s2">"</span><span class="si">{:.2%}</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"Perplexity"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">"∞"</span> <span class="k">if</span> <span class="n">math</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+    <span class="s2">"OOV Rate"</span><span class="p">:</span> <span class="s2">"</span><span class="si">{:.2%}</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"Coverage"</span><span class="p">:</span> <span class="s2">"</span><span class="si">{:.2%}</span><span class="s2">"</span><span class="p">,</span>
 <span class="p">}))</span>
 </pre></div>
 </div>
@@ -11469,39 +11456,36 @@ Case-type distribution:
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_b794c">
+<table id="T_5d3be">
 <thead>
 <tr>
 <th class="blank level0"> </th>
-<th class="col_heading level0 col0" id="T_b794c_level0_col0">Model</th>
-<th class="col_heading level0 col1" id="T_b794c_level0_col1">UNK</th>
-<th class="col_heading level0 col2" id="T_b794c_level0_col2">Next Word Accuracy</th>
-<th class="col_heading level0 col3" id="T_b794c_level0_col3">Missing Word Accuracy</th>
-<th class="col_heading level0 col4" id="T_b794c_level0_col4">OOV Rate</th>
-<th class="col_heading level0 col5" id="T_b794c_level0_col5">Coverage</th>
-<th class="col_heading level0 col6" id="T_b794c_level0_col6">Perplexity</th>
+<th class="col_heading level0 col0" id="T_5d3be_level0_col0">Model</th>
+<th class="col_heading level0 col1" id="T_5d3be_level0_col1">UNK</th>
+<th class="col_heading level0 col2" id="T_5d3be_level0_col2">Next Word Accuracy</th>
+<th class="col_heading level0 col3" id="T_5d3be_level0_col3">Missing Word Accuracy</th>
+<th class="col_heading level0 col4" id="T_5d3be_level0_col4">OOV Rate</th>
+<th class="col_heading level0 col5" id="T_5d3be_level0_col5">Coverage</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_b794c_level0_row0">0</th>
-<td class="data row0 col0" id="T_b794c_row0_col0">Without UNK handling</td>
-<td class="data row0 col1" id="T_b794c_row0_col1">No</td>
-<td class="data row0 col2" id="T_b794c_row0_col2">45.83%</td>
-<td class="data row0 col3" id="T_b794c_row0_col3">30.00%</td>
-<td class="data row0 col4" id="T_b794c_row0_col4">0.92%</td>
-<td class="data row0 col5" id="T_b794c_row0_col5">99.08%</td>
-<td class="data row0 col6" id="T_b794c_row0_col6">∞</td>
+<th class="row_heading level0 row0" id="T_5d3be_level0_row0">0</th>
+<td class="data row0 col0" id="T_5d3be_row0_col0">Without UNK handling</td>
+<td class="data row0 col1" id="T_5d3be_row0_col1">No</td>
+<td class="data row0 col2" id="T_5d3be_row0_col2">45.83%</td>
+<td class="data row0 col3" id="T_5d3be_row0_col3">30.00%</td>
+<td class="data row0 col4" id="T_5d3be_row0_col4">0.92%</td>
+<td class="data row0 col5" id="T_5d3be_row0_col5">99.08%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_b794c_level0_row1">1</th>
-<td class="data row1 col0" id="T_b794c_row1_col0">With UNK handling</td>
-<td class="data row1 col1" id="T_b794c_row1_col1">Yes</td>
-<td class="data row1 col2" id="T_b794c_row1_col2">54.17%</td>
-<td class="data row1 col3" id="T_b794c_row1_col3">55.00%</td>
-<td class="data row1 col4" id="T_b794c_row1_col4">0.92%</td>
-<td class="data row1 col5" id="T_b794c_row1_col5">99.08%</td>
-<td class="data row1 col6" id="T_b794c_row1_col6">∞</td>
+<th class="row_heading level0 row1" id="T_5d3be_level0_row1">1</th>
+<td class="data row1 col0" id="T_5d3be_row1_col0">With UNK handling</td>
+<td class="data row1 col1" id="T_5d3be_row1_col1">Yes</td>
+<td class="data row1 col2" id="T_5d3be_row1_col2">54.17%</td>
+<td class="data row1 col3" id="T_5d3be_row1_col3">55.00%</td>
+<td class="data row1 col4" id="T_5d3be_row1_col4">0.92%</td>
+<td class="data row1 col5" id="T_5d3be_row1_col5">99.08%</td>
 </tr>
 </tbody>
 </table>
@@ -11525,7 +11509,7 @@ Case-type distribution:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [202]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Display next-word and missing-word accuracy side by side for both models.</span>
@@ -11566,56 +11550,6 @@ Case-type distribution:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3ac3e1e2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [203]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Plot perplexity; infinite values are drawn at a temporary display height and labeled.</span>
-<span class="n">perplexities</span> <span class="o">=</span> <span class="n">comparison_df</span><span class="p">[</span><span class="s2">"Perplexity"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
-<span class="n">finite_values</span> <span class="o">=</span> <span class="n">perplexities</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">perplexities</span><span class="p">)]</span>
-<span class="n">cap</span> <span class="o">=</span> <span class="p">(</span><span class="n">finite_values</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1.25</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">finite_values</span><span class="p">)</span> <span class="k">else</span> <span class="mf">1.0</span>
-<span class="n">display_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">perplexities</span><span class="p">),</span> <span class="n">perplexities</span><span class="p">,</span> <span class="n">cap</span><span class="p">)</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">bars</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">comparison_df</span><span class="p">[</span><span class="s2">"Model"</span><span class="p">],</span> <span class="n">display_values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">"#4C78A8"</span><span class="p">,</span> <span class="s2">"#54A24B"</span><span class="p">])</span>
-<span class="k">for</span> <span class="n">bar</span><span class="p">,</span> <span class="n">actual</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">bars</span><span class="p">,</span> <span class="n">perplexities</span><span class="p">):</span>
-    <span class="n">label</span> <span class="o">=</span> <span class="s2">"∞ (zero probability)"</span> <span class="k">if</span> <span class="n">math</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">actual</span><span class="si">:</span><span class="s2">,.1f</span><span class="si">}</span><span class="s2">"</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">bar</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">bar</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">bar</span><span class="o">.</span><span class="n">get_height</span><span class="p">(),</span> <span class="n">label</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"bottom"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Test-Set Perplexity Across Two Trigram Models"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Model configuration"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Perplexity (infinite bars shown at a display cap)"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Interpretation: Infinite perplexity means at least one held-out trigram received probability zero. The displayed cap is only for visibility; the table retains infinity."</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABEIAAAHqCAYAAAAAtetdAAAAOnRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjExLjIsIGh0dHBzOi8vbWF0cGxvdGxpYi5vcmcvgI3uAAAAAAlwSFlzAAAPYQAAD2EBqD+naQAAeTpJREFUeJzt3Qm8jPX7//HLni1byFayh6wRkV2UbKFEWm0hpewtoiSttMg3UlGWslNURIXsWyW7ZN/3fZn/4/35Pe75zznOOc45hjnOvJ6Pxzgz99wz85k549z3fd3X57qS+Hw+nwEAAAAAAISBpKEeAAAAAAAAwLVCIAQAAAAAAIQNAiEAAAAAACBsEAgBAAAAAABhg0AIAAAAAAAIGwRCAAAAAABA2CAQAgAAAAAAwgaBEAAAAAAAEDYIhAAAAAAAgLBBIAQAgATogQcesFKlSl3V10iSJIm9/PLLV/U1cP3LmzevPfroo6EeRqJTuXJld4kPficAcGUIhABAIpYxY0Z3sHu5S9euXa/4tTZu3Oiea/jw4XF63K5du+z555+3IkWKWNq0aS1XrlxWp04d++abb+zMmTNXfRzHjx+/5PO48cYb3QHKt99+a+Hk9OnT7v2/9tprV+01zp49a1mzZnWvM2bMGEtsJk+eHKv/c7r89ddfV308+/fvj/V4hg4dauFGwUa993z58pnP57vk/rVr1/o/H4KGAJB4EAgBgETs8OHDbufeu7z44otu+YYNGyIsf/fdd0Myvt27d1uZMmVsxowZ9vHHH7vby5Ytc0GIp59++poeKD/++OPus7h48aKtXLnSsmXLZg8//LB9+eWXlljp/b7xxhvX9DUnTZrkDs4V8Bo2bJglNo0aNYrwf0uXLFmyWKVKlS5ZXrx48as+nptuuumS123YsKG7L/Ly9u3bR/kc//77r3399deWWCkAu2XLFvvtt98uue+LL75w9wMAEhcCIQCAkBkxYoQLfvzvf/+zWrVqWfr06e3mm2+2V155xebOnWuZM2e+5mPyzg6PHDnSUqdObR988ME1H0NipuDHXXfdZa+//rr7HSuDBwilAgUKWIkSJS4Jel64cMFGjRplTZs2DdnYAABXB4EQAAhzmqqgg9Lbb7/dUqVK5c4gt2zZ0rZv3+5fx8saKVasmH/6SpMmTezPP/9098+aNcsKFizorrdp0ybWU24OHjzofur5IqtQoYI1aNAgTmON7ziiki5dOsudO7dt27bNv2zOnDlWu3Zty5Ahg91www1255132sSJE6Oc979582arV6+eC+54B1LefcrI0fPos8yZM6f16NHDvbfYuNwYPvzwQ/eeFcgJNHDgQLf8u+++8y8LTPfXFAAFfqRv377+z6558+bugDBPnjxWt27dS8ajDBoFjmrUqHHZsesz+eWXX6xDhw7ueTNlymSff/55lOsqa+S5555zz63fdaFChaxPnz524sQJd78yFDS+1atXW79+/dz4kiZN6h4nep8KuKRJk8b9DjQ+BV4CrVixwurXr2/Zs2d3v29lJw0ZMsTOnz8fp3XiQuPVuAOnXf33339umX6ngc+rgKDeu/eeZenSpe57pWlv+v1rakdcp6NFRc+njJA//vjDZa/ou+BNkYqqHoWmrSnDLEeOHO57fO+997qgVlR1L2J6bv0/975ryZMnd8/XqlWrCH9/Ap9j/vz5Vr58efd7LVu2rC1atMjd//vvv7vft567cOHC9sMPP8Q5I2z8+PERPuuZM2e6qXtPPPFElI/R/wv9v9K0Pu/vkbLIIgf39Fl169btks8qOpoWqPeidfWdq1mzpi1cuPCy72HKlCnu89X/KwWRq1atatOnT4/T5wAAYcMHAAgbL774oibB+zZs2OBunz9/3lerVi1f9uzZfePHj/cdPnzYt27dOl/NmjV9t9xyi+/AgQNuvUGDBvlSpUrl1jl27Jhv7969vsmTJ/sef/xx/3PrOfXcw4YNi/V4Jk2a5B7z2GOPueeNSWzHGtdx6HW1fuB7kePHj/vSpEnjK1GihLs9evRoX9KkSX2dO3f2/fvvv76DBw/6Bg8e7EuWLJlv5MiR/sdVqlTJV6pUKd99993nW7BggW/fvn3usYH31a1b17do0SLfkSNHfGPHjvWlS5fO16JFiwivX69ePV/JkiUjLIvtGB566CE39tWrV7vbc+fOdes899xzEZ5P7/ull17y3z516pRb1qdPn0s+p9dff92XJEkS38aNGyMsnz59unvM119/fdnPunfv3r4sWbK415EXXnjBd/PNN/vOnTsXYT19v2677TZfwYIFfT/++KP7nPR71RjGjBnj1hk1apR73WbNmrnvpz7nb7/91n0PPvnkE3dfz549fbt27fJt2bLF16pVK/cZfP/99+7xek6N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lwULFtjzzz/vdiB0wK8dHgUPihQpYkOGDLGpU6e6IMLQoUOjHdPw4cOtbdu2Vr9+fbdz1qZNG1e8zZsSovvbtWvnUkS1Y6Egy/vvv29ly5a177//3gYPHuyyLSLvxD377LPWs2dPV2xMOxKBO33aodN7XbFihXXt2tXuvvtut+MV28dHrgkSWeD9+kz0XvRTr6kpMrt373YBD/VIDwyejBgxwh8EEQVN9DsDACByRwVtpxQQ+Ouvv9ztTp06uUwEBSSio30GHdwHFkvft29fhP0AnSB5+eWX/dsob5s7ZcoUl1VarFgxF0Twnk/juPfee1025OrVq+3IkSNuu6k6JJoS0qJFC3vggQeineqp7bf2JRQsGTdunH3yyScuEPDPP/9EuF/7GmPGjHHj1zJt+wcNGuT2BXSCROMM9NNPP7n9Cf3UZ6OTLArcBL5nvYa2vUWLFnWBntg+PnJNkMgC79d+iz4TnfDQa2pakk7e6PPRCarAfRPtb0XeD9D+Q0z7dkDY88VSgQIFfF9++aXv5MmT0a6j+7SO1k3Ijhw5or/Q7icQLs6dO+erVauW788///S99dZbvvr16/vKlCnjW7BggW/ChAm+Z599NtrHDho0yFe2bNlo7//ggw98RYsW9R06dMjd7tu3r69ChQq+s2fPutsXLlzwValSxffee++528OGDfMlT57ct2bNGv9zFC9e3NejRw//7alTp/puuOEG386dO6N8zSZNmvhuueUW37Fjx9ztw4cP+3LkyOH+Bnn3a0ynT592t7ds2eJLkSKF75dffvE/R4cOHXzly5f3306bNq2vZcuW/tu//fabL2XKlL7//vvvktfXe7r77rvde4nt47NkyeKbM2eO//7L3c6QIYPv999/998+deqUW2fWrFnu9sWLF30FCxb0DRky5JLfR7ly5aL83AAA4atz586+iRMnum3N7bff7vYFtA1ZvXq1r2bNmv7tdmTbt293+87alkZF+xbZsmXzb2P1fGnSpPH9888/EbZNFStWdNe1v6DnGzBggP/+1157zVesWDG3rfPWyZ49u++zzz6L8jXHjBnjniNwu/7YY4/5HnjgAf/9SZIk8S1btsx/v/ZNOnbs6L+tx2rfYNOmTe72448/7l7T2585fvy477bbbvN9/PHHUY7h3Xff9dWpU8d/+3KPb9euXYTXv9ztp59+2vfc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IQBwFaio6SuvvOJ2irQT5LnzzjutdOnSbqqLMkceeughlymiAIna5mnn6vvvv3fdXZQxAgAAEg4VNVWtD2WHqAOMaHteoEABa9Wqlb3++utuGqy6vvz5558uALJq1So3hWbMmDHuMd7jAIQOgRAAiKctW7bYRx99ZL///rtlyZLFBT8U6PC6wigA8v7777s6Hx6lyj766KPusV6dDy1bsWKFa3/XtGlTWuABABBCf//9twt2qM6XtuXK3lRLW9H2u2DBgq5eV/369f2P0f5Anz59XGcYnchQFsjXX39t69atc9NhdcKDDm9AwkEgBADiSNNWVO39p59+cgVQq1Wr5uqBDB8+3FauXGn58uVz66keyA8//GBr1qzx7/xcvHjR7Uw1atTI3n77bT57AAASiF27drnaH4sXL7a2bdtahQoV7Ntvv3VTW5XdoWkv3jTWHTt22Ny5c/2PPXnypJs206tXL9fxDUDCxuRzAAig4IZ2emKilnZVqlSxzZs3u2CGusKoGryms7z00kv+9bp06WKbNm2yKVOm/P8/ukmTWrdu3dyUGQAAcG2oZpcCGjHJnDmzy9zQ9r1v375uWouyOA8fPmxvvvmmf73u3bvbr7/+6jJGPCpurk4w//7771V9HwCCg4wQAAig6S2ffvqpS31NmTKly+BYunSpHTlyxFV217JAKmyqtnkbNmxwO09Dhw51abD58+d39ytjZO3ata5gGgAACF1tDwUvVq9e7bI0VddDgQy1stf2PXJx8iVLlrjtu4Igd999t40bN86dxNBUWFGQRIVPNUUGwPWHjBAACKCq75r6ora2muermh8PP/ywa4GrHSGlvnq0M6V5vzVq1HAdXgYPHmxp06a1d999N8JZI62nzBAAABAaXbt2dScmVJBcNUCKFSvmTlaozkedOnVcTQ+PAiZqg/vYY4/ZX3/95Vrkavv/8ccf+9fp0aOHzZkzxw4ePBiidwTgSpARAiBs+Xy+KAuXqbbHtGnTLEeOHNaiRQtr166d7dmzx8qUKeN2itT2VjR/WJXhR48e7W5rJypjxozuLJNSY7Nnz+6WK7By4403XuN3BwBAeIpu+67aHto+a7vcr18/a9y4sTtRoe27bqvtrajji7rAqOC5KCtU23dlg+gkiabByLFjx9x0WQDXHzJCAIQl1QHRXN6oqMiZ0l8PHDjggiCioIZ2knQ2SB1hvLnEKoSqwIeoZV758uWtUqVKrhWuhyAIAADXxueff+7a10dFWRwLFixw23QFQURTWZW9OXDgQDtz5ox/+67iqAqo6CSHCqA2adLEFTvX1FkPQRDg+kVGCICwoywOta795ptvIrS+C/TUU0/Z7NmzIxQ1PXv2rN12222uY8zLL7/sqsuXLl3anRlKliyZ3XTTTTZ+/HjLlSvXNXw3AABAdu/e7drdamqLpq5GRQXOdaJj0aJF/mU6waGOL8oAad26tav1Va5cOZcZevr0aRcAGTt2rGXKlIkPGkgkCIQACIsdIxU9VfBDVND0rbfeclXhIxdH82gecdGiRV0wpHr16v7lqv+hTjEKkKROndrtTKnTjHa8VEMkqlRcAAAQfN40FZ2I8AqeqzvMihUron3Mb7/95treq/aHtvOBNUQ0LVZF0LVvoPa4CqgULlzYypYty68PSGQIhABI9AoVKmT33HOPS5eVUqVKuQKoSnWNidJmVRztxx9/9C/TfGAFPfr3728dOnS46mMHAACXUreX3Llz2xNPPOGmteiEh7I2lbHZpk2bGD8ynbgoWLCgffXVV/5lCnzky5fPxowZYw8++CAfOZDIUSMEQKKjKSsqiKZsDVHA4uuvv3Y7OWpjq7M9Tz/99GWfp2fPni7bY+XKlRHmAyugEpglAgAArj5lcqqI+alTpyxFihQu4KEsTxUzVTcY/dT9l6NaIQp4bNu2zb9M01pHjBjhCqcCSPzICAGQ6CiLQ1kbzz77rPXp08dOnDjhbqvuh7q/qLip1+nlchTwUFE1zQ0GAAChs2/fPlfL45133nHt7vfu3Wt58+Z123pNY1Gnlw8//PCyz6MiqGqfe++999qgQYOuydgBJCxkhAC4rikVdvHixRGWab5wp06d7KOPPnJBkbRp07rb//vf/+y7775zNUM0D1hptZfz6quvup0lAABw7eikxZIlSyIsy5o1qzup8d5777luLtmyZbMnn3zSBUY0jVUZIz///LO7Lyaq56V6IgqcAAhPZIQAuG5pR0ddW9TiTm3tNGUlQ4YM7j5Ni1EWyIABA6xz5862f/9+dxZJBc80vUU7Smpr26xZMzeNRi1vKXQKAEDoKZOzePHi9u+//7pAh1rX6ySHaJlX30PTYNTOVrdr1arlgidz5851ARPVAtP2Xd1fACAyMkIAXFcOHz5sn332mbuulrXly5e3VKlSuS4vCop42SFZsmRxLfDUCk87Rqoor7NIaomnivKqI/L666+7qvFVqlRxBdZ69+7tlgMAgGs/7eWLL75w15XJWbJkSXfC4vfff3fBjL///tvdp6kwDz30kOvgJtp+66SGskFU12v79u2uBsiCBQvcPoIKpvft29cOHjzIrxSAH4EQANeVZcuWWbt27VxGh3Tv3t1NcVHbu9q1a1vlypVdyqzm/7744ouuQKpX30O3tSP05ZdfukDJM88843awdDZJc41VRf7mm28O8TsEACD8/PLLL+6ExfLly/0Fy48ePeoCHiVKlHDBkOHDh7v7FOhYtWqVzZw50397w4YNNnHiRLcdf/75592JkfXr17uMEnWOy5w5c0jfH4CEhakxAK472hnSFJhZs2a525oWo2CGdp7GjRtnbdu2dVkeCnh06dLFdX1ZvXq1W1dpsosWLXKZIcooAQAACWO6a+HChe3OO+/0n8CoWrWqy/pUpoeyQRXgaNSokav5pakv6h4zZ84ct26dOnXcyY7IdUUAICpkhABIkFTQ1AtwRKYskNmzZ7vsEO9M0IoVK9yOknaMFBDZuXOnlSpVyipWrOimv/zwww/+df/77z9bunTpNX9PAACEO23XGzZs6Gp3BdLJCWVujh8/3k1z8bbZygDVdl0nOXQiQ9t71ftSFqjqgXhTYpVBopphygIBgMshIwRAgnT69GlX3FTzflUkLXKnGJ01KlOmjMsA8drcJk2a1AVI5OzZs266zKeffuqWV6hQwbXW8+Yhq5AaAAC4tg4dOuSKmSvo8dprr0W57W/atKl98sknbpmmxdx+++3+7b0KqXbo0MHd1tRYZYio9pcouKKaYABwOWSEAEiQbrjhBtftZcSIES5wEUiBDQU5tOOzadMm/1kjzS/2Mj1SpkxpH374oX377bduh6tGjRougCIEQQAACI1MmTK5YuY6yaEW91Ft+1U01dv2Kws0cHuvQqrqGDN06FDLly+fq+/lIQgCILbICAEQMipoGlPLWu+skep89OvX75KzRrly5XJF0N599123TF1jChQoYN99991VHzsAAIifbdu2Wf78+d32W4GPyNv+HDlyuGwRTXdR5zdt2++77z6X5QkAwUBGCICQUAHTggULuna4snHjRn/GRuBZI80JVnqsUmEjnzVq0KCBywLx6KyRKsZ7Z40AAMDVFzlz83Ly5MljjzzyiL/FfeRtv+p/eNv35MmTu2k0KoAeua4IAMQXgRAAIaH5vkqJVfBCdUAqVaoUZYEzZYMcO3bMVYuPLGPGjBE6vzz00EP2/fffu1RZAABw9WmaSsmSJe3MmTNxepy2/ypePmbMmMtu359++mmbPn06U18ABA2BEAAhsX37dkufPr0NGzbMtcNVFfkiRYpcsl7u3LntiSeesDfffNN1gvGo/e3XX3/tdo482mmqW7dujNNtAABA8KgDzPHjx11ARObPn+8yNrVN79279yUZH55ixYq5QqevvPKKmw7jUYeYyZMnR9i+p0mTxmrWrMmvDUDQEAgBcM1o6ouqvB84cMCd1dHc3wwZMtiNN97odnKiM2DAAHd2SFkjvXr1skcffdS1xVXB1Pbt2/MbBADgGgqcoqLtc7t27eydd96xH3/80U15UXBERcyHDBlib7/9drTPo6Lm6vyigqcvvfSSyxDVtBjVDlHnGAC4WiiWCuCauXDhgit49vjjj/tb5imwoeKmyvAITION7ODBg26HavPmze4sUsuWLe3mm2/mtwcAwFWkkxdr1651JyNk8ODBrnaXlp06dcoFP9Si/rbbbrPUqVO7NvZly5Z166qzi05aaApM5syZo3z+3bt3u+dT1mepUqWsRYsWliVLFn6nAK4qAiEArpojR464s0aqDO/56KOPrG/fvm6nSFkg2gHSzpOKoD388MP8NgAASEDeeustF/z4999/LVWqVC5goe1248aNXUHTatWq2TfffGPPPPOMff75565WiFrYy9mzZ13dLhU+f/XVV0P9VgDAj6kxAK4aFTpt06ZNhGWa86saHsOHD3e3ldWhDBHtaKmdLgAACD0VKt+1a5cLcFSuXNk/HWbu3Lnu58yZM109kG+//dZSpEjhip8mTZo0Qjc3BUS0L6CTICqQDgAJBYEQAFfN888/b3PmzLElS5b4lykLpGPHjvbee+/5C6hpHvGaNWusX79+NmLECJdSu3XrVn4zAACEiDrBKNNDtby0zVatD01xrVq1qv38888uUKLsTk+hQoVc8VOtG0j1Q/Q4bd8BIKEgEALgiq1cudIVLa1Tp45LfdWUGClRooTr4qJsj0Bad9u2bTZ27Fh3Wym2yhCZOHGizZgxw9544w279dZb+c0AABAi2g5r++5ldvzvf/+zCRMmWK5cuaxKlSou6DFw4MAIj1ER9FmzZrnOL5506dJZp06dbPXq1df8PQBAdKgRAuCK6GyRdnCU+qp2uB988IGrIK90Wd1WCq1a3v3zzz/ubJEnU6ZMlidPHnaMAAAIoT179thzzz1nt99+u/Xp08e//IUXXrCffvrJ/vrrL39mx9KlS23ZsmXutrI9y5cv726XKVPG/7gaNWq4znCaMuPR1Fda2wNISAiEALiEiptNmjTpssVLT58+7Wp8KJvDa3OnImp33HGHPfnkk679nagtXs6cOW38+PHuts4oDRo0yFasWGF//PGHWx8AAFx7W7ZscQVNdYJi2LBh1qRJE7d85MiRrq6XpsDccMMNtmHDBitSpIjrElOrVi1/0EPdYLzt+4kTJ9yJkAcffDDGTjEAEGoEQgBcQpXhCxYsaJMnT7Z69er5z+ZouVJivWrwOkukIIZa2mp6i0fziPv372979+51FeYV8FDbPQVElCKrlFllimTNmtVljQAAgKvv4sWLNn36dLv33ntdcMOjTE7V6dL01t9++81Nbf3zzz/dT2WBeO1wmzVrZocPH3Y1QuT33393NUNUKFUBFU2lUQaoWt4rKwQAEipqhAC4RN68ee2hhx6yAQMGuNs606NpLAUKFHBzhhcvXuyWZ8+e3f3UzlKgBg0a2NGjR93OkJQuXdql0CoYosCKAig6+0QQBACAa0fBiscee8xat24dYXmpUqVc9oamxjRs2NB1iNFUGQVLvDohXnFz1QDxpsfcc8899tVXX7nuMpoGq6CJOscQBAGQ0JERAsBOnTrlzhDpTI9HRc1UMV7V34cOHWpff/21y/5Qq1tleCiYoWwPFUzTT+/skKxfv94KFy7sfiqzBAAAJAxqe6uTEipk3q1bN3+XNwUw3n//fRcoUUFzbdcrVKhgFStWdO1vPQp4ZMmSJUINEAC43pARAoShTZs2uSJomu4iGzdudBkgCxYscMELFUTTTs59991nL774or355puuIFrq1KldUESF1UaNGuUeq/t++eUXe+2111zKreqL9O3b1ypXrkwQBACABEbd3NTtRR1eFBTxMjd1kkM+++wzO378uCugquWrVq2K8HhlhezevdvOnTsXkvEDQDCQEQKEoa1bt7ppLmpXW79+fbesWrVqtm7dOhfM6NChgzs7pJ0fzf1VtohXK0S6du1q06ZN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"/>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Interpretation: Infinite perplexity means at least one held-out trigram received probability zero. The displayed cap is only for visibility; the table retains infinity.
-</pre>
-</div>
-</div>
-</div>
-</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=12973b5c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -11632,7 +11566,7 @@ Case-type distribution:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [204]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Select a small number of successes and failures for readable qualitative analysis.</span>
@@ -11811,7 +11745,7 @@ Case-type distribution:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Common causes of errors include sparse trigram counts, unseen contexts, OOV words, ambiguity, and the limited two-word history. <code>&lt;UNK&gt;</code> pools rare-word evidence but loses the identity of each replaced word. Unseen trigrams receive probability zero, which can prevent a prediction and produce infinite perplexity.</p>
+<p>Common causes of errors include sparse trigram counts, unseen contexts, OOV words, ambiguity, and the limited two-word history. <code>&lt;UNK&gt;</code> pools rare-word evidence but loses the identity of each replaced word. Unseen trigrams receive probability zero, which can prevent a prediction.</p>
 </div>
 </div>
 </div>
@@ -11831,7 +11765,7 @@ Case-type distribution:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [205]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Generate conclusion statements directly from the calculated results.</span>
@@ -11843,9 +11777,8 @@ Case-type distribution:
 <span class="nb">print</span><span class="p">(</span><span class="s2">"3. The &lt;UNK&gt; model maps unseen test words to a learned token; the base model leaves them unsupported."</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"4. Next-word accuracy changed from </span><span class="si">{</span><span class="n">base_result</span><span class="p">[</span><span class="s1">'Next Word Accuracy'</span><span class="p">]</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> without &lt;UNK&gt; to </span><span class="si">{</span><span class="n">unk_result</span><span class="p">[</span><span class="s1">'Next Word Accuracy'</span><span class="p">]</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> with &lt;UNK&gt;."</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"5. Missing-word accuracy changed from </span><span class="si">{</span><span class="n">base_result</span><span class="p">[</span><span class="s1">'Missing Word Accuracy'</span><span class="p">]</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> without &lt;UNK&gt; to </span><span class="si">{</span><span class="n">unk_result</span><span class="p">[</span><span class="s1">'Missing Word Accuracy'</span><span class="p">]</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2"> with &lt;UNK&gt;."</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"6. An unseen trigram has probability zero; the comparison table reports the resulting perplexity honestly."</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"7. An unseen word has no count in the base model, while the &lt;UNK&gt; model maps it to &lt;UNK&gt;."</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"8. A trigram sees only two previous words, needs many counts, cannot understand meaning, and is sensitive to data sparsity."</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"6. An unseen word has no count in the base model, while the &lt;UNK&gt; model maps it to &lt;UNK&gt;."</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"7. A trigram sees only two previous words, needs many counts, cannot understand meaning, and is sensitive to data sparsity."</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -11863,9 +11796,8 @@ Case-type distribution:
 3. The &lt;UNK&gt; model maps unseen test words to a learned token; the base model leaves them unsupported.
 4. Next-word accuracy changed from 45.83% without &lt;UNK&gt; to 54.17% with &lt;UNK&gt;.
 5. Missing-word accuracy changed from 30.00% without &lt;UNK&gt; to 55.00% with &lt;UNK&gt;.
-6. An unseen trigram has probability zero; the comparison table reports the resulting perplexity honestly.
-7. An unseen word has no count in the base model, while the &lt;UNK&gt; model maps it to &lt;UNK&gt;.
-8. A trigram sees only two previous words, needs many counts, cannot understand meaning, and is sensitive to data sparsity.
+6. An unseen word has no count in the base model, while the &lt;UNK&gt; model maps it to &lt;UNK&gt;.
+7. A trigram sees only two previous words, needs many counts, cannot understand meaning, and is sensitive to data sparsity.
 </pre>
 </div>
 </div>
@@ -11878,7 +11810,7 @@ Case-type distribution:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="17.-Conclusion">17. Conclusion<a class="anchor-link" href="#17.-Conclusion">¶</a></h2><p>This notebook implemented two trigram language-model configurations using all books in the NLTK Gutenberg Corpus and evaluated both next-word and missing-word prediction. The executed comparison shows the measured effect of rare-word replacement. <code>&lt;UNK&gt;</code> provides a defined representation for unfamiliar words and reduces vocabulary size. It does not remove ambiguity, unseen trigram contexts, or the limited two-word history of a trigram, so the calculated results—not a universal claim—should guide the comparison.</p>
+<h2 id="17.-Conclusion">17. Conclusion<a class="anchor-link" href="#17.-Conclusion">¶</a></h2><p>This notebook implemented two trigram language model configurations using all books in the NLTK Gutenberg Corpus and evaluated both next-word and missing-word prediction. The executed comparison shows the measured effect of rare word replacement. <code>&lt;UNK&gt;</code> provides a defined representation for unfamiliar words and reduces vocabulary size. It does not remove ambiguity, unseen trigram contexts, or the limited two word history of a trigram, so the calculated results—not a universal claim—should guide the comparison.</p>
 <h2 id="18.-References">18. References<a class="anchor-link" href="#18.-References">¶</a></h2><ol>
 <li>NLTK Project. <a href="https://www.nltk.org/book/ch02.html">NLTK Book: Accessing Text Corpora and Lexical Resources</a>.</li>
 <li>NLTK Project. <a href="https://www.nltk.org/howto/corpus.html">NLTK Corpus HOWTO</a>.</li>
