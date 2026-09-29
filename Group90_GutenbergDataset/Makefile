@@ -9,12 +9,28 @@ NBCONVERT := $(VENV)/bin/jupyter-nbconvert
 SETUP_STAMP := $(VENV)/.setup-complete
 EXPORT_DIR := exports
 LOCAL_NLTK_DATA := data/nltk_data
+PROJECT_DIR := $(notdir $(CURDIR))
+ZIP_ARCHIVE := ../$(PROJECT_DIR).zip
+PACKAGE_FILES := \
+	$(NOTEBOOK) \
+	README.md \
+	requirements.txt \
+	.gitignore \
+	Makefile \
+	scripts/prepare_print_html.py \
+	$(EXPORT_DIR)/$(NOTEBOOK_STEM).py \
+	$(EXPORT_DIR)/$(NOTEBOOK_STEM).html \
+	$(EXPORT_DIR)/$(NOTEBOOK_STEM).pdf \
+	data/README.md \
+	data/nltk_data/corpora/gutenberg.zip \
+	data/nltk_data/tokenizers/punkt.zip \
+	data/nltk_data/tokenizers/punkt_tab.zip
 
 # Override this when Chrome is installed at a different path:
 # make export-pdf CHROME=/path/to/google-chrome
 CHROME ?= /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
 
-.PHONY: help all setup data run validate export export-py export-html export-pdf clean-exports
+.PHONY: help all setup data run validate export export-files export-py export-html export-pdf package clean-exports
 
 help:
 	@echo "Available commands:"
@@ -25,7 +41,8 @@ help:
 	@echo "  make export-py    Export the notebook to exports/*.py"
 	@echo "  make export-html  Export the notebook to exports/*.html"
 	@echo "  make export-pdf   Export HTML and print it to exports/*.pdf"
-	@echo "  make export       Create the PY, HTML, and PDF exports"
+	@echo "  make package      Create the exports and submission ZIP"
+	@echo "  make export       Create the PY, HTML, PDF, and submission ZIP"
 	@echo "  make all          Setup, download data, run, validate, and export"
 	@echo "  make clean-exports Remove only generated files from exports/"
 
@@ -68,7 +85,9 @@ validate: setup
 $(EXPORT_DIR):
 	@mkdir -p $(EXPORT_DIR)
 
-export: export-py export-html export-pdf
+export: package
+
+export-files: export-py export-html export-pdf
 
 export-py: setup | $(EXPORT_DIR)
 	$(NBCONVERT) \
@@ -95,6 +114,14 @@ export-pdf: export-html
 		--no-pdf-header-footer \
 		--print-to-pdf="$(abspath $(EXPORT_DIR)/$(NOTEBOOK_STEM).pdf)" \
 		"file://$(abspath $(EXPORT_DIR)/$(NOTEBOOK_STEM).html)"
+
+# Build a self-contained submission archive after all exports are ready.
+# Running zip from the parent directory preserves the project folder in the ZIP.
+package: export-files
+	@command -v zip >/dev/null || (echo "zip command not found" && exit 1)
+	@cd .. && zip -FS -9 "$(PROJECT_DIR).zip" $(addprefix $(PROJECT_DIR)/,$(PACKAGE_FILES))
+	@unzip -t "$(ZIP_ARCHIVE)"
+	@echo "Submission archive created: $(ZIP_ARCHIVE)"
 
 clean-exports:
 	@mkdir -p $(EXPORT_DIR)

@@ -197,8 +197,9 @@ make setup         # Create .env and install requirements
 make data          # Download/verify local NLTK resources
 make run           # Execute the notebook and save its outputs
 make validate      # Check for unexecuted or failed code cells
-make export        # Create .py, .html, and .pdf exports
-make all           # Run the complete workflow from setup through export
+make package       # Create exports and the submission ZIP
+make export        # Create .py, .html, .pdf, and the submission ZIP
+make all           # Run the complete workflow through export and packaging
 ```
 
 Individual export commands are also available:
@@ -208,6 +209,10 @@ make export-py
 make export-html
 make export-pdf
 ```
+
+Both `make export` and `make package` create the final archive at
+`../Group90_GutenbergDataset.zip`. The archive is tested automatically after it
+is created.
 
 Exports are written to:
 
