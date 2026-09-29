@@ -12,7 +12,6 @@
 # | **Member 2** | SHREEJA MAHAPATRA - 2025ag05424 |
 # | **Member 3** | NAVEEN RANJOLKAR - 2025ag0539 |
 # | **Member 4** | SOMVANSHI PRASAD DIGAMBAR - 2025ag05285 |
-# | **Course/Subject** |  |
 # 
 # ## 1. Introduction
 # 
@@ -38,12 +37,12 @@
 # 
 # The setup checks for NLTK resources and downloads them only when absent. The fixed seed makes any sampling deterministic.
 
-# In[1]:
+# In[184]:
 
 
 # Standard-library tools for paths, counting, mathematics, randomness, and text matching.
 from pathlib import Path
-from collections import Counter, defaultdict
+from collections import Counter
 import math
 import random
 import re
@@ -103,7 +102,7 @@ print(f"Local NLTK data folder: {NLTK_DATA_DIR.resolve()}")
 # 
 # We first list every available Gutenberg file and then load all books. Combining the complete corpus provides a larger and more varied collection of sentences for training, rare-word analysis, and `<UNK>` evaluation.
 
-# In[2]:
+# In[185]:
 
 
 # Ask NLTK for every file identifier available in its Gutenberg Corpus.
@@ -116,7 +115,7 @@ print(f"Number of books available: {len(available_books)}")
 print("Selection: all available Gutenberg books")
 
 
-# In[3]:
+# In[186]:
 
 
 # These containers collect the text, sentences, tokens, and statistics from all books.
@@ -165,7 +164,7 @@ display(per_book_stats_df)
 # 4. Two `<START>` tokens and one `<END>` token are added during trigram counting. Two starts are required because a trigram needs two preceding tokens.
 # 5. `<UNK>` is **not** added yet; it is learned from training frequencies later.
 
-# In[4]:
+# In[187]:
 
 
 # Accept alphabetic words and words with an internal apostrophe; reject punctuation/numbers.
@@ -193,7 +192,7 @@ display(pd.DataFrame(example_rows))
 # 
 # The corpus is randomly split at sentence boundaries: 80% of complete sentences are used for training and 20% are used for testing. The fixed random seed makes the split reproducible. The split is completed before vocabulary and `<UNK>` statistics are learned, which prevents test information from leaking into training.
 
-# In[5]:
+# In[188]:
 
 
 # Shuffle sentence indices rather than individual words so sentence boundaries remain intact.
@@ -223,7 +222,7 @@ display(split_df.style.format({"Percentage": "{:.1f}%"}))
 # 
 # EDA is reported on the training split because training frequencies determine the vocabulary and rare-word rule. This also avoids looking at test data when designing `<UNK>`.
 
-# In[6]:
+# In[189]:
 
 
 # Flatten each split only for frequency calculations; the sentence lists remain unchanged.
@@ -248,7 +247,7 @@ display(frequency_stats_df.style.format({"Value": lambda x: f"{x:,.2f}" if isins
 display(pd.DataFrame(train_frequency.most_common(20), columns=["Word", "Frequency"]))
 
 
-# In[7]:
+# In[190]:
 
 
 # Plot the twenty words with the largest training counts.
@@ -264,7 +263,7 @@ plt.show()
 print("Interpretation: Function words dominate the corpus, so they are likely predictions in many common contexts.")
 
 
-# In[8]:
+# In[191]:
 
 
 # Count how many word types occur once, twice, three times, and so on.
@@ -285,7 +284,7 @@ plt.show()
 print("Interpretation: Most word types occur only a few times, while a small number occur very often.")
 
 
-# In[9]:
+# In[192]:
 
 
 # Compare the two groups that will be replaced because their frequency is below 3.
@@ -312,7 +311,7 @@ print("Interpretation: The large rare-word tail motivates grouping frequency-1 a
 # 
 # The class below stores trigram, context, and unigram counts. Prediction is deterministic: the highest probability wins, then training frequency and alphabetical order break ties.
 
-# In[10]:
+# In[193]:
 
 
 # Special markers represent sentence boundaries and unknown words.
@@ -408,7 +407,7 @@ print(f"Distinct observed trigrams: {len(base_model.trigram_counts):,}")
 # - An **unknown word** is unavailable to the model at prediction time.
 # - An **out-of-vocabulary (OOV) word** is absent from the model's training vocabulary.
 
-# In[11]:
+# In[194]:
 
 
 # Rebuild the model after replacing training words with frequency below 3 by <UNK>.
@@ -434,7 +433,7 @@ plt.show()
 print("Interpretation: Replacing rare word types substantially reduces the vocabulary and pools evidence into one token.")
 
 
-# In[12]:
+# In[195]:
 
 
 # A test token is OOV when it never appeared in the original training vocabulary.
@@ -461,7 +460,7 @@ plt.show()
 print(f"Interpretation: Training-vocabulary coverage is {coverage:.2%}; the remaining {oov_rate:.2%} is OOV.")
 
 
-# In[13]:
+# In[196]:
 
 
 # Collect five examples showing exactly which test words become <UNK>.
@@ -479,7 +478,7 @@ display(pd.DataFrame(unknown_examples))
 # 
 # The 24 diagnostic cases below come from real held-out Gutenberg sentences. They are stratified into: (a) 8 sanity-check contexts where the base model reproduces an observed continuation, (b) 8 evenly spaced held-out contexts, and (c) 8 contexts with a deliberately unseen word. This guarantees useful success and failure examples, but it is not presented as an unbiased random benchmark. Full-test perplexity remains the broader held-out evaluation.
 
-# In[14]:
+# In[197]:
 
 
 # These invented words create controlled OOV contexts alongside real held-out sentences.
@@ -532,7 +531,7 @@ print(f"Next-word cases: {len(next_cases_df)}")
 # 
 # Both model configurations use the same cases. For the `<UNK>` model, correctness is judged against the mapped target: predicting `<UNK>` is correct when the actual target is outside that model's vocabulary.
 
-# In[15]:
+# In[198]:
 
 
 # Evaluate the same cases with the base vocabulary and the <UNK> vocabulary.
@@ -566,7 +565,7 @@ display(next_results_df)
 # 
 # The 20 diagnostic cases are deliberately balanced to show different behaviors: 6 known-target sanity checks, 5 ordinary held-out contexts, 5 held-out targets that map to `<UNK>`, and 4 contexts containing an inserted OOV word. The `<UNK>`-target cases are selected where the `<UNK>` model has learned a matching local pattern. Therefore, this table demonstrates the capability of unknown-word handling; it is not an unbiased estimate of accuracy over every Gutenberg sentence.
 
-# In[16]:
+# In[199]:
 
 
 def predict_missing(model, left_words, right_words, candidate_limit=500):
@@ -671,7 +670,7 @@ print("Case-type distribution:")
 display(missing_cases_df["Case type"].value_counts().rename_axis("Case type").reset_index(name="Cases"))
 
 
-# In[17]:
+# In[200]:
 
 
 # Run both models on every missing-word case and retain detailed row-level results.
@@ -705,7 +704,7 @@ display(missing_accuracy_by_type_df.style.format("{:.2%}"))
 # 
 # Accuracy is the fraction of correct test cases. Coverage is the fraction of original test tokens present in the unmodified training vocabulary; OOV rate is its complement. Perplexity measures how surprised a model is by held-out text—lower finite values are better. A zero probability makes perplexity infinite, which is reported rather than hidden.
 
-# In[18]:
+# In[201]:
 
 
 # Aggregate the two prediction accuracies and corpus-level coverage metrics by model.
@@ -732,7 +731,7 @@ display(comparison_df.style.format({
 
 # ## 14. Visual comparison
 
-# In[19]:
+# In[202]:
 
 
 # Display next-word and missing-word accuracy side by side for both models.
@@ -751,7 +750,7 @@ plt.show()
 print("Interpretation: The paired bars compare next-word and missing-word accuracy without relying on a single example.")
 
 
-# In[20]:
+# In[203]:
 
 
 # Plot perplexity; infinite values are drawn at a temporary display height and labeled.
@@ -776,7 +775,7 @@ print("Interpretation: Infinite perplexity means at least one held-out trigram r
 
 # ## 15. Sample prediction and error analysis
 
-# In[21]:
+# In[204]:
 
 
 # Select a small number of successes and failures for readable qualitative analysis.
@@ -807,7 +806,7 @@ display(sample_analysis_df)
 
 # ## 16. Final analysis
 
-# In[22]:
+# In[205]:
 
 
 # Generate conclusion statements directly from the calculated results.

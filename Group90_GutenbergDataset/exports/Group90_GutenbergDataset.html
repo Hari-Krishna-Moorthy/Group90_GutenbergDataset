@@ -7884,10 +7884,6 @@ a.anchor-link {
 <td><strong>Member 4</strong></td>
 <td>SOMVANSHI PRASAD DIGAMBAR - 2025ag05285</td>
 </tr>
-<tr>
-<td><strong>Course/Subject</strong></td>
-<td></td>
-</tr>
 </tbody>
 </table>
 <h2 id="1.-Introduction">1. Introduction<a class="anchor-link" href="#1.-Introduction">¶</a></h2><p>A <strong>language model</strong> assigns probabilities to sequences of words and can use them to predict likely words. An <strong>N-gram</strong> is a sequence of <em>N</em> consecutive tokens. A <strong>trigram</strong> model uses the previous two words to estimate the next word:</p>
@@ -7932,12 +7928,12 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [184]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Standard-library tools for paths, counting, mathematics, randomness, and text matching.</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span><span class="p">,</span> <span class="n">defaultdict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
@@ -8028,7 +8024,7 @@ Local NLTK data folder: /Users/harikrishnamoorthyt/github/ml/bits-assignment/gut
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [185]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Ask NLTK for every file identifier available in its Gutenberg Corpus.</span>
@@ -8165,7 +8161,7 @@ Selection: all available Gutenberg books
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [186]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># These containers collect the text, sentences, tokens, and statistics from all books.</span>
@@ -8446,7 +8442,7 @@ Selection: all available Gutenberg books
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [187]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Accept alphabetic words and words with an internal apostrophe; reject punctuation/numbers.</span>
@@ -8551,7 +8547,7 @@ Selection: all available Gutenberg books
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [188]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Shuffle sentence indices rather than individual words so sentence boundaries remain intact.</span>
@@ -8589,33 +8585,33 @@ Selection: all available Gutenberg books
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_61264">
+<table id="T_bca5e">
 <thead>
 <tr>
 <th class="blank level0"> </th>
-<th class="col_heading level0 col0" id="T_61264_level0_col0">Split</th>
-<th class="col_heading level0 col1" id="T_61264_level0_col1">Sentences</th>
-<th class="col_heading level0 col2" id="T_61264_level0_col2">Percentage</th>
+<th class="col_heading level0 col0" id="T_bca5e_level0_col0">Split</th>
+<th class="col_heading level0 col1" id="T_bca5e_level0_col1">Sentences</th>
+<th class="col_heading level0 col2" id="T_bca5e_level0_col2">Percentage</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_61264_level0_row0">0</th>
-<td class="data row0 col0" id="T_61264_row0_col0">Training</td>
-<td class="data row0 col1" id="T_61264_row0_col1">78656</td>
-<td class="data row0 col2" id="T_61264_row0_col2">80.0%</td>
+<th class="row_heading level0 row0" id="T_bca5e_level0_row0">0</th>
+<td class="data row0 col0" id="T_bca5e_row0_col0">Training</td>
+<td class="data row0 col1" id="T_bca5e_row0_col1">78656</td>
+<td class="data row0 col2" id="T_bca5e_row0_col2">80.0%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_61264_level0_row1">1</th>
-<td class="data row1 col0" id="T_61264_row1_col0">Testing</td>
-<td class="data row1 col1" id="T_61264_row1_col1">19665</td>
-<td class="data row1 col2" id="T_61264_row1_col2">20.0%</td>
+<th class="row_heading level0 row1" id="T_bca5e_level0_row1">1</th>
+<td class="data row1 col0" id="T_bca5e_row1_col0">Testing</td>
+<td class="data row1 col1" id="T_bca5e_row1_col1">19665</td>
+<td class="data row1 col2" id="T_bca5e_row1_col2">20.0%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row2" id="T_61264_level0_row2">2</th>
-<td class="data row2 col0" id="T_61264_row2_col0">Total</td>
-<td class="data row2 col1" id="T_61264_row2_col1">98321</td>
-<td class="data row2 col2" id="T_61264_row2_col2">100.0%</td>
+<th class="row_heading level0 row2" id="T_bca5e_level0_row2">2</th>
+<td class="data row2 col0" id="T_bca5e_row2_col0">Total</td>
+<td class="data row2 col1" id="T_bca5e_row2_col1">98321</td>
+<td class="data row2 col2" id="T_bca5e_row2_col2">100.0%</td>
 </tr>
 </tbody>
 </table>
@@ -8639,7 +8635,7 @@ Selection: all available Gutenberg books
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [189]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Flatten each split only for frequency calculations; the sentence lists remain unchanged.</span>
@@ -8676,49 +8672,49 @@ Selection: all available Gutenberg books
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_3ae11">
+<table id="T_82bb7">
 <thead>
 <tr>
 <th class="blank level0"> </th>
-<th class="col_heading level0 col0" id="T_3ae11_level0_col0">Statistic</th>
-<th class="col_heading level0 col1" id="T_3ae11_level0_col1">Value</th>
+<th class="col_heading level0 col0" id="T_82bb7_level0_col0">Statistic</th>
+<th class="col_heading level0 col1" id="T_82bb7_level0_col1">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_3ae11_level0_row0">0</th>
-<td class="data row0 col0" id="T_3ae11_row0_col0">Total training tokens</td>
-<td class="data row0 col1" id="T_3ae11_row0_col1">1,708,115.00</td>
+<th class="row_heading level0 row0" id="T_82bb7_level0_row0">0</th>
+<td class="data row0 col0" id="T_82bb7_row0_col0">Total training tokens</td>
+<td class="data row0 col1" id="T_82bb7_row0_col1">1,708,115.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_3ae11_level0_row1">1</th>
-<td class="data row1 col0" id="T_3ae11_row1_col0">Unique training words</td>
-<td class="data row1 col1" id="T_3ae11_row1_col1">37,932.00</td>
+<th class="row_heading level0 row1" id="T_82bb7_level0_row1">1</th>
+<td class="data row1 col0" id="T_82bb7_row1_col0">Unique training words</td>
+<td class="data row1 col1" id="T_82bb7_row1_col1">37,932.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row2" id="T_3ae11_level0_row2">2</th>
-<td class="data row2 col0" id="T_3ae11_row2_col0">Words occurring once</td>
-<td class="data row2 col1" id="T_3ae11_row2_col1">13,943.00</td>
+<th class="row_heading level0 row2" id="T_82bb7_level0_row2">2</th>
+<td class="data row2 col0" id="T_82bb7_row2_col0">Words occurring once</td>
+<td class="data row2 col1" id="T_82bb7_row2_col1">13,943.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row3" id="T_3ae11_level0_row3">3</th>
-<td class="data row3 col0" id="T_3ae11_row3_col0">Words occurring twice</td>
-<td class="data row3 col1" id="T_3ae11_row3_col1">5,299.00</td>
+<th class="row_heading level0 row3" id="T_82bb7_level0_row3">3</th>
+<td class="data row3 col0" id="T_82bb7_row3_col0">Words occurring twice</td>
+<td class="data row3 col1" id="T_82bb7_row3_col1">5,299.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row4" id="T_3ae11_level0_row4">4</th>
-<td class="data row4 col0" id="T_3ae11_row4_col0">Word types occurring &lt; 3 times</td>
-<td class="data row4 col1" id="T_3ae11_row4_col1">19,242.00</td>
+<th class="row_heading level0 row4" id="T_82bb7_level0_row4">4</th>
+<td class="data row4 col0" id="T_82bb7_row4_col0">Word types occurring &lt; 3 times</td>
+<td class="data row4 col1" id="T_82bb7_row4_col1">19,242.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row5" id="T_3ae11_level0_row5">5</th>
-<td class="data row5 col0" id="T_3ae11_row5_col0">Rare-token occurrences</td>
-<td class="data row5 col1" id="T_3ae11_row5_col1">24,541.00</td>
+<th class="row_heading level0 row5" id="T_82bb7_level0_row5">5</th>
+<td class="data row5 col0" id="T_82bb7_row5_col0">Rare-token occurrences</td>
+<td class="data row5 col1" id="T_82bb7_row5_col1">24,541.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row6" id="T_3ae11_level0_row6">6</th>
-<td class="data row6 col0" id="T_3ae11_row6_col0">Rare types as % of vocabulary</td>
-<td class="data row6 col1" id="T_3ae11_row6_col1">50.73</td>
+<th class="row_heading level0 row6" id="T_82bb7_level0_row6">6</th>
+<td class="data row6 col0" id="T_82bb7_row6_col0">Rare types as % of vocabulary</td>
+<td class="data row6 col1" id="T_82bb7_row6_col1">50.73</td>
 </tr>
 </tbody>
 </table>
@@ -8862,7 +8858,7 @@ Selection: all available Gutenberg books
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [190]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the twenty words with the largest training counts.</span>
@@ -8905,7 +8901,7 @@ Selection: all available Gutenberg books
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [191]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Count how many word types occur once, twice, three times, and so on.</span>
@@ -8953,7 +8949,7 @@ Selection: all available Gutenberg books
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [192]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Compare the two groups that will be replaced because their frequency is below 3.</span>
@@ -9012,7 +9008,7 @@ Selection: all available Gutenberg books
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [193]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Special markers represent sentence boundaries and unknown words.</span>
@@ -9138,7 +9134,7 @@ Distinct observed trigrams: 1,114,721
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [194]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Rebuild the model after replacing training words with frequency below 3 by &lt;UNK&gt;.</span>
@@ -9176,39 +9172,39 @@ Distinct observed trigrams: 1,114,721
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_e1a5d">
+<table id="T_db588">
 <thead>
 <tr>
 <th class="blank level0"> </th>
-<th class="col_heading level0 col0" id="T_e1a5d_level0_col0">Statistic</th>
-<th class="col_heading level0 col1" id="T_e1a5d_level0_col1">Before <unk></unk></th>
-<th class="col_heading level0 col2" id="T_e1a5d_level0_col2">After <unk></unk></th>
+<th class="col_heading level0 col0" id="T_db588_level0_col0">Statistic</th>
+<th class="col_heading level0 col1" id="T_db588_level0_col1">Before <unk></unk></th>
+<th class="col_heading level0 col2" id="T_db588_level0_col2">After <unk></unk></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_e1a5d_level0_row0">0</th>
-<td class="data row0 col0" id="T_e1a5d_row0_col0">Vocabulary size</td>
-<td class="data row0 col1" id="T_e1a5d_row0_col1">37,933.00</td>
-<td class="data row0 col2" id="T_e1a5d_row0_col2">18,692.00</td>
+<th class="row_heading level0 row0" id="T_db588_level0_row0">0</th>
+<td class="data row0 col0" id="T_db588_row0_col0">Vocabulary size</td>
+<td class="data row0 col1" id="T_db588_row0_col1">37,933.00</td>
+<td class="data row0 col2" id="T_db588_row0_col2">18,692.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_e1a5d_level0_row1">1</th>
-<td class="data row1 col0" id="T_e1a5d_row1_col0">Rare word types replaced</td>
-<td class="data row1 col1" id="T_e1a5d_row1_col1">0.00</td>
-<td class="data row1 col2" id="T_e1a5d_row1_col2">19,242.00</td>
+<th class="row_heading level0 row1" id="T_db588_level0_row1">1</th>
+<td class="data row1 col0" id="T_db588_row1_col0">Rare word types replaced</td>
+<td class="data row1 col1" id="T_db588_row1_col1">0.00</td>
+<td class="data row1 col2" id="T_db588_row1_col2">19,242.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row2" id="T_e1a5d_level0_row2">2</th>
-<td class="data row2 col0" id="T_e1a5d_row2_col0">Training token occurrences mapped to <unk></unk></td>
-<td class="data row2 col1" id="T_e1a5d_row2_col1">0.00</td>
-<td class="data row2 col2" id="T_e1a5d_row2_col2">24,541.00</td>
+<th class="row_heading level0 row2" id="T_db588_level0_row2">2</th>
+<td class="data row2 col0" id="T_db588_row2_col0">Training token occurrences mapped to <unk></unk></td>
+<td class="data row2 col1" id="T_db588_row2_col1">0.00</td>
+<td class="data row2 col2" id="T_db588_row2_col2">24,541.00</td>
 </tr>
 <tr>
-<th class="row_heading level0 row3" id="T_e1a5d_level0_row3">3</th>
-<td class="data row3 col0" id="T_e1a5d_row3_col0">Percent of training tokens mapped</td>
-<td class="data row3 col1" id="T_e1a5d_row3_col1">0.00</td>
-<td class="data row3 col2" id="T_e1a5d_row3_col2">1.44</td>
+<th class="row_heading level0 row3" id="T_db588_level0_row3">3</th>
+<td class="data row3 col0" id="T_db588_row3_col0">Percent of training tokens mapped</td>
+<td class="data row3 col1" id="T_db588_row3_col1">0.00</td>
+<td class="data row3 col2" id="T_db588_row3_col2">1.44</td>
 </tr>
 </tbody>
 </table>
@@ -9234,7 +9230,7 @@ Distinct observed trigrams: 1,114,721
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [195]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># A test token is OOV when it never appeared in the original training vocabulary.</span>
@@ -9273,27 +9269,27 @@ Distinct observed trigrams: 1,114,721
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_33d12">
+<table id="T_0afdc">
 <thead>
 <tr>
 <th class="blank level0"> </th>
-<th class="col_heading level0 col0" id="T_33d12_level0_col0">Category</th>
-<th class="col_heading level0 col1" id="T_33d12_level0_col1">Count</th>
-<th class="col_heading level0 col2" id="T_33d12_level0_col2">Percentage</th>
+<th class="col_heading level0 col0" id="T_0afdc_level0_col0">Category</th>
+<th class="col_heading level0 col1" id="T_0afdc_level0_col1">Count</th>
+<th class="col_heading level0 col2" id="T_0afdc_level0_col2">Percentage</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_33d12_level0_row0">0</th>
-<td class="data row0 col0" id="T_33d12_row0_col0">Known test tokens</td>
-<td class="data row0 col1" id="T_33d12_row0_col1">423339</td>
-<td class="data row0 col2" id="T_33d12_row0_col2">99.08%</td>
+<th class="row_heading level0 row0" id="T_0afdc_level0_row0">0</th>
+<td class="data row0 col0" id="T_0afdc_row0_col0">Known test tokens</td>
+<td class="data row0 col1" id="T_0afdc_row0_col1">423339</td>
+<td class="data row0 col2" id="T_0afdc_row0_col2">99.08%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_33d12_level0_row1">1</th>
-<td class="data row1 col0" id="T_33d12_row1_col0">OOV test tokens</td>
-<td class="data row1 col1" id="T_33d12_row1_col1">3939</td>
-<td class="data row1 col2" id="T_33d12_row1_col2">0.92%</td>
+<th class="row_heading level0 row1" id="T_0afdc_level0_row1">1</th>
+<td class="data row1 col0" id="T_0afdc_row1_col0">OOV test tokens</td>
+<td class="data row1 col1" id="T_0afdc_row1_col1">3939</td>
+<td class="data row1 col2" id="T_0afdc_row1_col2">0.92%</td>
 </tr>
 </tbody>
 </table>
@@ -9319,7 +9315,7 @@ Distinct observed trigrams: 1,114,721
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [196]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Collect five examples showing exactly which test words become &lt;UNK&gt;.</span>
@@ -9414,7 +9410,7 @@ Distinct observed trigrams: 1,114,721
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [197]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># These invented words create controlled OOV contexts alongside real held-out sentences.</span>
@@ -9746,7 +9742,7 @@ Distinct observed trigrams: 1,114,721
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [198]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Evaluate the same cases with the base vocabulary and the &lt;UNK&gt; vocabulary.</span>
@@ -10365,7 +10361,7 @@ Distinct observed trigrams: 1,114,721
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [199]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict_missing</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">left_words</span><span class="p">,</span> <span class="n">right_words</span><span class="p">,</span> <span class="n">candidate_limit</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
@@ -10779,7 +10775,7 @@ Case-type distribution:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [200]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Run both models on every missing-word case and retain detailed row-level results.</span>
@@ -11380,12 +11376,12 @@ Case-type distribution:
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_3794b">
+<table id="T_22b30">
 <thead>
 <tr>
 <th class="index_name level0">Model</th>
-<th class="col_heading level0 col0" id="T_3794b_level0_col0">With UNK handling</th>
-<th class="col_heading level0 col1" id="T_3794b_level0_col1">Without UNK handling</th>
+<th class="col_heading level0 col0" id="T_22b30_level0_col0">With UNK handling</th>
+<th class="col_heading level0 col1" id="T_22b30_level0_col1">Without UNK handling</th>
 </tr>
 <tr>
 <th class="index_name level0">Case type</th>
@@ -11395,24 +11391,24 @@ Case-type distribution:
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_3794b_level0_row0">Deliberate OOV context</th>
-<td class="data row0 col0" id="T_3794b_row0_col0">0.00%</td>
-<td class="data row0 col1" id="T_3794b_row0_col1">0.00%</td>
+<th class="row_heading level0 row0" id="T_22b30_level0_row0">Deliberate OOV context</th>
+<td class="data row0 col0" id="T_22b30_row0_col0">0.00%</td>
+<td class="data row0 col1" id="T_22b30_row0_col1">0.00%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_3794b_level0_row1">Held-out context</th>
-<td class="data row1 col0" id="T_3794b_row1_col0">0.00%</td>
-<td class="data row1 col1" id="T_3794b_row1_col1">0.00%</td>
+<th class="row_heading level0 row1" id="T_22b30_level0_row1">Held-out context</th>
+<td class="data row1 col0" id="T_22b30_row1_col0">0.00%</td>
+<td class="data row1 col1" id="T_22b30_row1_col1">0.00%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row2" id="T_3794b_level0_row2">Known-target sanity check</th>
-<td class="data row2 col0" id="T_3794b_row2_col0">100.00%</td>
-<td class="data row2 col1" id="T_3794b_row2_col1">100.00%</td>
+<th class="row_heading level0 row2" id="T_22b30_level0_row2">Known-target sanity check</th>
+<td class="data row2 col0" id="T_22b30_row2_col0">100.00%</td>
+<td class="data row2 col1" id="T_22b30_row2_col1">100.00%</td>
 </tr>
 <tr>
-<th class="row_heading level0 row3" id="T_3794b_level0_row3">Target mapped to <unk></unk></th>
-<td class="data row3 col0" id="T_3794b_row3_col0">100.00%</td>
-<td class="data row3 col1" id="T_3794b_row3_col1">0.00%</td>
+<th class="row_heading level0 row3" id="T_22b30_level0_row3">Target mapped to <unk></unk></th>
+<td class="data row3 col0" id="T_22b30_row3_col0">100.00%</td>
+<td class="data row3 col1" id="T_22b30_row3_col1">0.00%</td>
 </tr>
 </tbody>
 </table>
@@ -11436,7 +11432,7 @@ Case-type distribution:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [201]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Aggregate the two prediction accuracies and corpus-level coverage metrics by model.</span>
@@ -11473,39 +11469,39 @@ Case-type distribution:
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
 </style>
-<table id="T_2abf6">
+<table id="T_b794c">
 <thead>
 <tr>
 <th class="blank level0"> </th>
-<th class="col_heading level0 col0" id="T_2abf6_level0_col0">Model</th>
-<th class="col_heading level0 col1" id="T_2abf6_level0_col1">UNK</th>
-<th class="col_heading level0 col2" id="T_2abf6_level0_col2">Next Word Accuracy</th>
-<th class="col_heading level0 col3" id="T_2abf6_level0_col3">Missing Word Accuracy</th>
-<th class="col_heading level0 col4" id="T_2abf6_level0_col4">OOV Rate</th>
-<th class="col_heading level0 col5" id="T_2abf6_level0_col5">Coverage</th>
-<th class="col_heading level0 col6" id="T_2abf6_level0_col6">Perplexity</th>
+<th class="col_heading level0 col0" id="T_b794c_level0_col0">Model</th>
+<th class="col_heading level0 col1" id="T_b794c_level0_col1">UNK</th>
+<th class="col_heading level0 col2" id="T_b794c_level0_col2">Next Word Accuracy</th>
+<th class="col_heading level0 col3" id="T_b794c_level0_col3">Missing Word Accuracy</th>
+<th class="col_heading level0 col4" id="T_b794c_level0_col4">OOV Rate</th>
+<th class="col_heading level0 col5" id="T_b794c_level0_col5">Coverage</th>
+<th class="col_heading level0 col6" id="T_b794c_level0_col6">Perplexity</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_2abf6_level0_row0">0</th>
-<td class="data row0 col0" id="T_2abf6_row0_col0">Without UNK handling</td>
-<td class="data row0 col1" id="T_2abf6_row0_col1">No</td>
-<td class="data row0 col2" id="T_2abf6_row0_col2">45.83%</td>
-<td class="data row0 col3" id="T_2abf6_row0_col3">30.00%</td>
-<td class="data row0 col4" id="T_2abf6_row0_col4">0.92%</td>
-<td class="data row0 col5" id="T_2abf6_row0_col5">99.08%</td>
-<td class="data row0 col6" id="T_2abf6_row0_col6">∞</td>
+<th class="row_heading level0 row0" id="T_b794c_level0_row0">0</th>
+<td class="data row0 col0" id="T_b794c_row0_col0">Without UNK handling</td>
+<td class="data row0 col1" id="T_b794c_row0_col1">No</td>
+<td class="data row0 col2" id="T_b794c_row0_col2">45.83%</td>
+<td class="data row0 col3" id="T_b794c_row0_col3">30.00%</td>
+<td class="data row0 col4" id="T_b794c_row0_col4">0.92%</td>
+<td class="data row0 col5" id="T_b794c_row0_col5">99.08%</td>
+<td class="data row0 col6" id="T_b794c_row0_col6">∞</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_2abf6_level0_row1">1</th>
-<td class="data row1 col0" id="T_2abf6_row1_col0">With UNK handling</td>
-<td class="data row1 col1" id="T_2abf6_row1_col1">Yes</td>
-<td class="data row1 col2" id="T_2abf6_row1_col2">54.17%</td>
-<td class="data row1 col3" id="T_2abf6_row1_col3">55.00%</td>
-<td class="data row1 col4" id="T_2abf6_row1_col4">0.92%</td>
-<td class="data row1 col5" id="T_2abf6_row1_col5">99.08%</td>
-<td class="data row1 col6" id="T_2abf6_row1_col6">∞</td>
+<th class="row_heading level0 row1" id="T_b794c_level0_row1">1</th>
+<td class="data row1 col0" id="T_b794c_row1_col0">With UNK handling</td>
+<td class="data row1 col1" id="T_b794c_row1_col1">Yes</td>
+<td class="data row1 col2" id="T_b794c_row1_col2">54.17%</td>
+<td class="data row1 col3" id="T_b794c_row1_col3">55.00%</td>
+<td class="data row1 col4" id="T_b794c_row1_col4">0.92%</td>
+<td class="data row1 col5" id="T_b794c_row1_col5">99.08%</td>
+<td class="data row1 col6" id="T_b794c_row1_col6">∞</td>
 </tr>
 </tbody>
 </table>
@@ -11529,7 +11525,7 @@ Case-type distribution:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [202]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Display next-word and missing-word accuracy side by side for both models.</span>
@@ -11575,7 +11571,7 @@ Case-type distribution:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [203]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Plot perplexity; infinite values are drawn at a temporary display height and labeled.</span>
@@ -11636,7 +11632,7 @@ Case-type distribution:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [204]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Select a small number of successes and failures for readable qualitative analysis.</span>
@@ -11835,7 +11831,7 @@ Case-type distribution:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [205]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Generate conclusion statements directly from the calculated results.</span>
